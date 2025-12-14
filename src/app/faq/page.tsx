@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { SITE_NAME } from "@/constants/navigation";
-import { Icons } from "@/config/icons";
-import { theme } from "@/config/theme";
 
 const faqs = [
   {
@@ -15,7 +14,7 @@ const faqs = [
   {
     question: "What are the commission rates?",
     answer:
-      "Our commission rates vary by plan. Starter plan charges 15%, Professional plan charges 12%, and Enterprise plan charges 10%. See our Pricing page for more details.",
+      "Our commission rates vary by plan. Please contact our sales team for detailed pricing information.",
   },
   {
     question: "How do I receive payments?",
@@ -35,7 +34,7 @@ const faqs = [
   {
     question: "Can I customize my profile?",
     answer:
-      "Yes! You can customize your profile with photos, descriptions, service offerings, pricing, and availability. Professional and Enterprise plans offer additional branding customization options.",
+      "Yes! You can customize your profile with photos, descriptions, service offerings, and availability. Contact us for information about additional branding customization options.",
   },
   {
     question: "How secure is my data?",
@@ -54,25 +53,25 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen">
-      <section className="py-20 bg-gradient-to-br from-orange-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section className="py-24 bg-gradient-to-br from-accent/20 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <p className="text-xl text-muted-foreground">
               Find answers to common questions about {SITE_NAME}
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
@@ -81,37 +80,36 @@ export default function FAQ() {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.05 }}
-                  className="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden"
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-border hover:border-primary/30"
                 >
                   <button
                     onClick={() =>
                       setOpenIndex(openIndex === index ? null : index)
                     }
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-accent transition-colors"
                   >
-                    <span className="font-semibold text-gray-900 dark:text-white pr-4">
+                    <span className="font-semibold text-foreground pr-4">
                       {faq.question}
                     </span>
-                    <Icons.ChevronDown
-                      className={`w-5 h-5 flex-shrink-0 transition-transform ${
-                        openIndex === index ? "rotate-180" : ""
-                      }`}
-                      size={20}
-                      style={{ color: theme.colors.primary }}
-                    />
+                    <motion.div
+                      animate={{ rotate: openIndex === index ? 180 : 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <ChevronDown className="w-5 h-5 flex-shrink-0 text-primary" />
+                    </motion.div>
                   </button>
-                  <AnimatePresence>
+                  <AnimatePresence mode="wait">
                     {openIndex === index && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 py-4 text-gray-600 dark:text-gray-400">
+                        <div className="px-6 py-5 text-muted-foreground leading-relaxed">
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -124,24 +122,24 @@ export default function FAQ() {
         </div>
       </section>
 
-      <section className="py-20 bg-orange-50 dark:bg-gray-800">
+      <section className="py-24 bg-accent/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold mb-6 text-foreground">
               Still Have Questions?
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+            <p className="text-lg text-muted-foreground mb-10">
               Can't find the answer you're looking for? Contact our support team.
             </p>
             <a
               href="/contact"
-              className="inline-block px-8 py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors shadow-lg hover:shadow-xl"
+              className="inline-block px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-white hover:text-primary hover:border-2 hover:border-primary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
               Contact Support
             </a>

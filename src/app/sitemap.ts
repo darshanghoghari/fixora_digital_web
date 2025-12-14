@@ -1,10 +1,10 @@
 import { MetadataRoute } from "next";
-import { NAV_LINKS } from "@/constants/navigation";
+import contentData from "@/data/content.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://providerapp.com";
+  const baseUrl = contentData.site.url;
 
-  const routes = NAV_LINKS.map((link) => ({
+  const routes = contentData.navigation.links.map((link) => ({
     url: `${baseUrl}${link.href}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,

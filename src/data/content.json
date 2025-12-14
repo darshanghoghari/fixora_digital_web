@@ -1,0 +1,365 @@
+{
+  "site": {
+    "name": "FIXORA",
+    "tagline": "Service Provider",
+    "description": "Connect with customers and grow your business with our service provider platform.",
+    "url": "https://fixora.com",
+    "email": "support@fixora.com",
+    "phone": "+1 (234) 567-890",
+    "address": {
+      "street": "123 Business Street",
+      "suite": "Suite 100",
+      "city": "City",
+      "state": "State",
+      "zip": "12345"
+    },
+    "officeHours": {
+      "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
+      "saturday": "Saturday: 10:00 AM - 4:00 PM",
+      "sunday": "Sunday: Closed"
+    }
+  },
+  "seo": {
+    "keywords": [
+      "FIXORA",
+      "service provider platform",
+      "business management",
+      "service provider app",
+      "customer management",
+      "booking system",
+      "service provider software",
+      "business growth platform",
+      "provider dashboard",
+      "service management",
+      "customer booking",
+      "business automation",
+      "service provider tools",
+      "business platform",
+      "service provider solution"
+    ],
+    "metaDescription": "FIXORA - Connect with customers and grow your business with our comprehensive service provider platform. Manage bookings, track performance, and expand your business network.",
+    "ogImage": "/fixora_app_icon.png",
+    "twitterHandle": "@fixora"
+  },
+  "navigation": {
+    "links": [
+      { "href": "/", "label": "Home" },
+      { "href": "/about", "label": "About" },
+      { "href": "/services", "label": "Services" },
+      { "href": "/how-it-works", "label": "How It Works" },
+      { "href": "/features", "label": "Features" },
+      { "href": "/download", "label": "Download" },
+      { "href": "/faq", "label": "FAQ" },
+      { "href": "/contact", "label": "Contact" }
+    ],
+    "footer": {
+      "product": [
+        { "href": "/features", "label": "Features" },
+        { "href": "/download", "label": "Download" }
+      ],
+      "company": [
+        { "href": "/about", "label": "About" },
+        { "href": "/contact", "label": "Contact" },
+        { "href": "/faq", "label": "FAQ" }
+      ],
+      "resources": [
+        { "href": "/services", "label": "Services" },
+        { "href": "/how-it-works", "label": "How It Works" }
+      ]
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Grow Your Business with",
+      "titleHighlight": "FIXORA",
+      "description": "Connect with customers and grow your business with our service provider platform.",
+      "cta": {
+        "primary": { "text": "Get Started", "href": "/download" },
+        "secondary": { "text": "Learn More", "href": "/how-it-works" }
+      }
+    },
+    "features": [
+      {
+        "title": "Easy Management",
+        "description": "Streamline your operations with intuitive tools and dashboards.",
+        "icon": "BarChart3"
+      },
+      {
+        "title": "Grow Your Reach",
+        "description": "Connect with more customers and expand your business network.",
+        "icon": "Rocket"
+      },
+      {
+        "title": "Secure Platform",
+        "description": "Your data and transactions are protected with enterprise-grade security.",
+        "icon": "Lock"
+      }
+    ],
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Join thousands of providers already using our platform to grow their business.",
+      "button": { "text": "Download Now", "href": "/download" }
+    }
+  },
+  "about": {
+    "title": "About FIXORA",
+    "subtitle": "Empowering service providers to connect, grow, and succeed",
+    "vision": {
+      "title": "Our Vision",
+      "content": [
+        "At FIXORA, we believe that every service provider deserves the tools and platform to succeed in today's digital economy. Our mission is to create a seamless, intuitive, and powerful application that connects providers with customers while streamlining operations and driving growth.",
+        "We are committed to building a platform that is not just functional, but transformative—helping providers reach new heights in their business journey."
+      ]
+    },
+    "values": [
+      {
+        "title": "Innovation",
+        "description": "We continuously evolve our platform with cutting-edge technology and user feedback."
+      },
+      {
+        "title": "Reliability",
+        "description": "We ensure our platform is stable, secure, and always available when you need it."
+      },
+      {
+        "title": "Support",
+        "description": "We provide comprehensive support to help you succeed every step of the way."
+      },
+      {
+        "title": "Growth",
+        "description": "We're committed to your success and provide tools that scale with your business."
+      }
+    ],
+    "team": {
+      "title": "Our Team",
+      "description": "Our team consists of passionate developers, designers, and business experts who are dedicated to creating the best possible experience for service providers. We combine technical expertise with deep industry knowledge to deliver solutions that truly make a difference."
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Everything you need to run and grow your provider business",
+    "items": [
+      {
+        "title": "Provider Dashboard",
+        "description": "Comprehensive dashboard to manage your business, track performance, and monitor analytics in real-time.",
+        "features": [
+          "Real-time analytics",
+          "Performance tracking",
+          "Business insights"
+        ]
+      },
+      {
+        "title": "Customer Management",
+        "description": "Efficiently manage customer relationships, bookings, and communications all in one place.",
+        "features": [
+          "Customer database",
+          "Booking management",
+          "Communication tools"
+        ]
+      },
+      {
+        "title": "Payment Processing",
+        "description": "Secure and seamless payment processing with multiple payment options and automated invoicing.",
+        "features": [
+          "Multiple payment methods",
+          "Automated invoicing",
+          "Transaction history"
+        ]
+      },
+      {
+        "title": "Marketing Tools",
+        "description": "Built-in marketing tools to help you reach more customers and grow your business.",
+        "features": [
+          "Promotional campaigns",
+          "Customer engagement",
+          "Growth analytics"
+        ]
+      },
+      {
+        "title": "Mobile App",
+        "description": "Full-featured mobile application to manage your business on the go, anytime, anywhere.",
+        "features": [
+          "iOS and Android support",
+          "Offline capabilities",
+          "Push notifications"
+        ]
+      },
+      {
+        "title": "24/7 Support",
+        "description": "Round-the-clock customer support to help you whenever you need assistance.",
+        "features": [
+          "Live chat support",
+          "Email support",
+          "Knowledge base"
+        ]
+      }
+    ]
+  },
+  "features": {
+    "title": "Powerful Features",
+    "subtitle": "Everything you need to run a successful provider business",
+    "items": [
+      {
+        "title": "Real-Time Analytics",
+        "description": "Track your business performance with comprehensive analytics and insights.",
+        "icon": "BarChart3"
+      },
+      {
+        "title": "Smart Scheduling",
+        "description": "Automated scheduling system that manages your availability and bookings.",
+        "icon": "Calendar"
+      },
+      {
+        "title": "Secure Payments",
+        "description": "Multiple payment options with secure, encrypted transactions.",
+        "icon": "CreditCard"
+      },
+      {
+        "title": "Customer Reviews",
+        "description": "Build trust with customer reviews and ratings on your profile.",
+        "icon": "Star"
+      },
+      {
+        "title": "Push Notifications",
+        "description": "Stay updated with instant notifications for bookings and messages.",
+        "icon": "Bell"
+      },
+      {
+        "title": "Multi-Language Support",
+        "description": "Access the platform in multiple languages for global reach.",
+        "icon": "Globe"
+      },
+      {
+        "title": "Offline Mode",
+        "description": "Continue working even without internet connectivity.",
+        "icon": "Smartphone"
+      },
+      {
+        "title": "Custom Branding",
+        "description": "Personalize your profile with custom branding and colors.",
+        "icon": "Palette"
+      },
+      {
+        "title": "API Integration",
+        "description": "Integrate with your existing tools and systems via our API.",
+        "icon": "Plug"
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Get started with FIXORA in four simple steps",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Sign Up",
+        "description": "Create your account in minutes. Simply download the app and complete your profile with business information."
+      },
+      {
+        "number": "02",
+        "title": "Set Up Your Profile",
+        "description": "Add your services, availability, and business details to start attracting customers."
+      },
+      {
+        "number": "03",
+        "title": "Get Discovered",
+        "description": "Customers can find and book your services through our platform. You'll receive notifications for new bookings."
+      },
+      {
+        "number": "04",
+        "title": "Manage & Grow",
+        "description": "Use our dashboard to manage bookings, track earnings, communicate with customers, and grow your business."
+      }
+    ],
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Join thousands of providers already using our platform",
+      "button": { "text": "Download Now", "href": "/download" }
+    }
+  },
+  "download": {
+    "title": "Download FIXORA",
+    "subtitle": "Get started today on iOS or Android",
+    "description": "Download our app on your preferred platform and start managing your provider business from anywhere, anytime.",
+    "features": [
+      "Manage bookings on the go",
+      "Real-time notifications",
+      "Offline mode support",
+      "Secure payment processing",
+      "Customer communication"
+    ],
+    "requirements": {
+      "ios": {
+        "title": "iOS",
+        "items": [
+          "iOS 13.0 or later",
+          "iPhone, iPad, or iPod touch",
+          "50 MB available space"
+        ]
+      },
+      "android": {
+        "title": "Android",
+        "items": [
+          "Android 7.0 or later",
+          "50 MB available space",
+          "Internet connection required"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about FIXORA",
+    "items": [
+      {
+        "question": "How do I get started?",
+        "answer": "Simply download the app from the App Store or Google Play, create an account, and complete your provider profile. You can start accepting bookings within minutes."
+      },
+      {
+        "question": "What are the commission rates?",
+        "answer": "Our commission rates vary by plan. Please contact our sales team for detailed pricing information."
+      },
+      {
+        "question": "How do I receive payments?",
+        "answer": "Payments are processed securely through our platform. You can choose from multiple payment methods including bank transfer, PayPal, and other options. Payments are typically processed within 2-3 business days."
+      },
+      {
+        "question": "Is there a mobile app?",
+        "answer": "Yes! We have native mobile apps for both iOS and Android. You can download them from the App Store or Google Play Store. The apps include all the features of the web platform."
+      },
+      {
+        "question": "What kind of support do you offer?",
+        "answer": "We offer 24/7 customer support via live chat, email, and phone. We also have a comprehensive knowledge base with tutorials and guides."
+      },
+      {
+        "question": "Can I customize my profile?",
+        "answer": "Yes! You can customize your profile with photos, descriptions, service offerings, and availability. Contact us for information about additional branding customization options."
+      },
+      {
+        "question": "How secure is my data?",
+        "answer": "We use enterprise-grade security measures including encryption, secure payment processing, and regular security audits. Your data is protected and we comply with all relevant data protection regulations."
+      },
+      {
+        "question": "Can I integrate with other tools?",
+        "answer": "Yes, we offer API access for custom integrations. We also offer integrations with popular business tools. Contact our sales team to discuss your specific integration needs."
+      }
+    ],
+    "cta": {
+      "title": "Still Have Questions?",
+      "description": "Can't find the answer you're looking for? Contact our support team.",
+      "button": { "text": "Contact Support", "href": "/contact" }
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have questions? We'd love to hear from you",
+    "form": {
+      "name": { "label": "Name", "placeholder": "Your name" },
+      "email": { "label": "Email", "placeholder": "your.email@example.com" },
+      "subject": { "label": "Subject", "placeholder": "Subject" },
+      "message": { "label": "Message", "placeholder": "Your message" },
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    }
+  }
+}
+

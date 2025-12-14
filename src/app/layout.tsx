@@ -3,7 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE_NAME, SITE_DESCRIPTION } from "@/constants/navigation";
+import Loader from "@/components/Loader";
+import { SITE_NAME, SITE_DESCRIPTION, SITE_KEYWORDS } from "@/constants/navigation";
+import contentData from "@/data/content.json";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,8 +22,8 @@ export const metadata: Metadata = {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
-  description: SITE_DESCRIPTION,
-  keywords: ["provider application", "business platform", "service provider"],
+  description: contentData.seo.metaDescription,
+  keywords: SITE_KEYWORDS,
   authors: [{ name: SITE_NAME }],
   icons: {
     icon: [
@@ -35,11 +37,20 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: SITE_NAME,
-    description: SITE_DESCRIPTION,
+    description: contentData.seo.metaDescription,
+    images: [
+      {
+        url: contentData.seo.ogImage,
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    description: SITE_DESCRIPTION,
+    description: contentData.seo.metaDescription,
+    creator: contentData.seo.twitterHandle,
   },
   robots: {
     index: true,
@@ -53,12 +64,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        suppressHydrationWarning
       >
+        <Loader />
         <Header />
-        <main className="min-h-screen pt-16 md:pt-20">{children}</main>
+        <main className="min-h-screen pt-16 md:pt-20 pb-0">{children}</main>
         <Footer />
       </body>
     </html>

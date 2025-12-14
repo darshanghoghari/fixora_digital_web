@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/constants/navigation";
-import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -18,17 +17,22 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (typeof window !== "undefined") {
+      handleScroll();
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md"
+          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
           : "bg-transparent"
-      }`}
+      )}
+      suppressHydrationWarning
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -39,17 +43,15 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground hover:text-primary transition-all font-medium relative group"
+                className="text-foreground hover:text-primary hover:bg-white px-4 py-2 rounded-md transition-all duration-300 font-medium relative group border border-transparent hover:border-primary/30 hover:shadow-sm"
               >
                 {link.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
-            <ThemeToggle />
           </div>
 
           <div className="flex items-center space-x-4 md:hidden">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
@@ -66,26 +68,39 @@ export default function Header() {
         </div>
       </nav>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-t border-border"
+            initial={{ opacity: 0, maxHeight: 0 }}
+            animate={{ opacity: 1, maxHeight: 500 }}
+            exit={{ opacity: 0, maxHeight: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden bg-background border-t border-border overflow-hidden"
           >
-            <div className="container mx-auto px-4 py-4 space-y-3">
-              {NAV_LINKS.map((link) => (
-                <Link
+            <motion.div
+              initial={{ y: -10 }}
+              animate={{ y: 0 }}
+              exit={{ y: -10 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4"
+            >
+              {NAV_LINKS.map((link, index) => (
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 text-foreground hover:text-primary transition-colors font-medium"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block py-3 px-4 rounded-md text-foreground hover:text-primary hover:bg-white transition-all duration-300 font-medium border border-transparent hover:border-primary/20"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

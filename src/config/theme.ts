@@ -5,16 +5,13 @@ export const theme = {
     accent: "#FED7AA",
     textPrimary: "#111827",
     textSecondary: "#6B7280",
-    background: {
-      light: "#FFFFFF",
-      dark: "#111827",
-      lightSecondary: "#F9FAFB",
-      darkSecondary: "#1F2937",
-    },
-    border: {
-      light: "#E5E7EB",
-      dark: "#374151",
-    },
+        background: {
+          light: "#FFFFFF",
+          lightSecondary: "#F9FAFB",
+        },
+        border: {
+          light: "#E5E7EB",
+        },
   },
   spacing: {
     xs: "0.25rem",

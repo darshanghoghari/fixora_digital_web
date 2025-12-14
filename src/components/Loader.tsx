@@ -1,85 +1,89 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Loader() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
+    setIsMounted(true);
+    const handleLoad = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
+    };
 
-    return () => clearTimeout(timer);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
   }, []);
 
-  if (!isLoading) return null;
+  if (!isMounted) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-white dark:bg-gray-900"
-    >
-      <div className="flex flex-col items-center space-y-4">
+    <AnimatePresence>
+      {isLoading && (
         <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="w-16 h-16 relative"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
         >
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full"
-          >
-            <rect
-              width="40"
-              height="40"
-              rx="10"
-              className="fill-orange-500"
-            />
-            <path
-              d="M20 12L26 18H22V26H18V18H14L20 12Z"
-              className="fill-white"
-            />
-            <circle cx="20" cy="28" r="2" className="fill-white" />
-          </svg>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="flex space-x-1"
-        >
-          {[0, 1, 2].map((i) => (
+          <div className="flex flex-col items-center space-y-6">
             <motion.div
-              key={i}
-              className="w-2 h-2 rounded-full bg-orange-500"
               animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.5, 1, 0.5],
+                scale: [1, 1.1, 1],
               }}
               transition={{
-                duration: 1,
+                duration: 1.5,
                 repeat: Infinity,
-                delay: i * 0.2,
                 ease: "easeInOut",
               }}
-            />
-          ))}
+              className="w-20 h-20 md:w-24 md:h-24 relative"
+            >
+              <Image
+                src="/fixora_app_icon.png"
+                alt="FIXORA Logo"
+                width={96}
+                height={96}
+                className="w-full h-full object-contain"
+                priority
+                unoptimized
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="flex space-x-2"
+            >
+              {[0, 1, 2].map((i) => (
+                <motion.div
+                  key={i}
+                  className="w-2 h-2 rounded-full bg-primary"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.5, 1, 0.5],
+                  }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                    ease: "easeInOut",
+                  }}
+                />
+              ))}
+            </motion.div>
+          </div>
         </motion.div>
-      </div>
-    </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 
