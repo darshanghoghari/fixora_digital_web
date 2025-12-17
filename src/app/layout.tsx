@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
@@ -69,10 +70,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
         suppressHydrationWarning
       >
-        <Loader />
-        <Header />
-        <main className="min-h-screen pt-16 md:pt-20 pb-0">{children}</main>
-        <Footer />
+        <Providers>
+          <Loader />
+          <Header />
+          <main className="min-h-screen pt-16 md:pt-20 pb-0">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
