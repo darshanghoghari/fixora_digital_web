@@ -107,7 +107,7 @@ export default function HeroSlider({ images, autoPlayInterval = 5000 }: HeroSlid
             isIconOnly
             variant="solid"
             size="sm"
-            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-900 shadow-lg backdrop-blur-sm"
+            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white shadow-lg backdrop-blur-sm border border-white/20"
             onPress={goToPrevious}
             aria-label="Previous slide"
           >
@@ -117,7 +117,7 @@ export default function HeroSlider({ images, autoPlayInterval = 5000 }: HeroSlid
             isIconOnly
             variant="solid"
             size="sm"
-            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-900 shadow-lg backdrop-blur-sm"
+            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white shadow-lg backdrop-blur-sm border border-white/20"
             onPress={goToNext}
             aria-label="Next slide"
           >

@@ -18,7 +18,7 @@ const heroImages = [
 export default function Home() {
   return (
     <>
-      <section className="relative min-h-[90vh] flex items-center bg-white overflow-hidden py-8 sm:py-12 md:py-20">
+      <section className="relative min-h-[90vh] flex items-center bg-background overflow-hidden py-8 sm:py-12 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <motion.div
@@ -31,7 +31,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-foreground leading-tight"
               >
                 {contentData.home.hero.title}{" "}
                 <span className="text-primary">{contentData.home.hero.titleHighlight}</span>
@@ -40,7 +40,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 lg:mb-10"
+                className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 lg:mb-10"
               >
                 {contentData.home.hero.description}
               </motion.p>
@@ -85,7 +85,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -94,10 +94,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               Why Choose Us?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Everything you need to manage and grow your provider business
             </p>
           </motion.div>
@@ -120,15 +120,15 @@ export default function Home() {
                     delay: index * 0.1,
                   }}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="bg-white p-8 rounded-lg border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                  className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
                 >
                   <div className="mb-6">
                     <IconComponent className="w-12 h-12 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                  <h3 className="text-xl font-semibold mb-4 text-foreground">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>
@@ -138,7 +138,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-gray-50">
+      <section className="py-20 md:py-24 bg-card">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h2
@@ -146,7 +146,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold mb-6 text-gray-900"
+              className="text-3xl md:text-4xl font-bold mb-6 text-foreground"
             >
               {contentData.home.cta.title}
             </motion.h2>
@@ -155,7 +155,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-gray-600 mb-10"
+              className="text-lg text-muted-foreground mb-10"
             >
               {contentData.home.cta.description}
             </motion.p>
