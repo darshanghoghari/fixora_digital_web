@@ -50,7 +50,7 @@
       { "href": "/features", "label": "Features" },
       { "href": "/download", "label": "Download" },
       { "href": "/faq", "label": "FAQ" },
-      { "href": "/contact", "label": "Contact" }
+      { "href": "/contact", "label": "Feedback" }
     ],
     "footer": {
       "product": [
@@ -59,12 +59,13 @@
       ],
       "company": [
         { "href": "/about", "label": "About" },
-        { "href": "/contact", "label": "Contact" },
+        { "href": "/contact", "label": "Feedback" },
         { "href": "/faq", "label": "FAQ" }
       ],
       "resources": [
         { "href": "/services", "label": "Services" },
-        { "href": "/how-it-works", "label": "How It Works" }
+        { "href": "/how-it-works", "label": "How It Works" },
+        { "href": "/privacy", "label": "Privacy Policy" }
       ]
     }
   },

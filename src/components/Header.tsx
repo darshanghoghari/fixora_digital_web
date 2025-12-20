@@ -72,34 +72,36 @@ export default function Header() {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, maxHeight: 0 }}
-            animate={{ opacity: 1, maxHeight: 500 }}
+            animate={{ opacity: 1, maxHeight: "calc(100vh - 4rem)" }}
             exit={{ opacity: 0, maxHeight: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden bg-background border-t border-border overflow-hidden"
+            className="md:hidden bg-background border-t border-border overflow-y-auto"
           >
             <motion.div
               initial={{ y: -10 }}
               animate={{ y: 0 }}
               exit={{ y: -10 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4"
+              className="container mx-auto px-4 sm:px-6 lg:px-8 py-6"
             >
-              {NAV_LINKS.map((link, index) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-3 px-4 rounded-md text-foreground hover:text-primary transition-all duration-300 font-medium"
+              <div className="space-y-2">
+                {NAV_LINKS.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block py-3 px-4 rounded-md text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 font-medium"
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
         )}
