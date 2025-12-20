@@ -6,19 +6,36 @@ import { BarChart3, Rocket, Lock } from "lucide-react";
 import { Button } from "@heroui/react";
 import contentData from "@/data/content.json";
 import HeroSlider from "@/components/HeroSlider";
+import AnimatedSVGBackground from "@/components/AnimatedSVGBackground";
 
 const features = contentData.home.features;
 
-const heroImages = [
-  "/fixora_app_icon.png",
-  "/fixora_app_icon.png",
-  "/fixora_app_icon.png",
+const heroSlides = [
+  {
+    image: "/fixora_app_icon.png",
+    title: "Manage Your Business",
+    subtitle: "Easy Management",
+    description: "Streamline your operations with intuitive tools and dashboards."
+  },
+  {
+    image: "/fixora_app_icon.png",
+    title: "Expand Your Network",
+    subtitle: "Grow Your Reach",
+    description: "Connect with more customers and expand your business network."
+  },
+  {
+    image: "/fixora_app_icon.png",
+    title: "Secure & Protected",
+    subtitle: "Enterprise Security",
+    description: "Your data and transactions are protected with enterprise-grade security."
+  },
 ];
 
 export default function Home() {
   return (
     <>
       <section className="relative min-h-[90vh] flex items-center bg-background overflow-hidden py-8 sm:py-12 md:py-20">
+        <AnimatedSVGBackground />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <motion.div
@@ -53,10 +70,10 @@ export default function Home() {
                 <Button
                   as={Link}
                   href={contentData.home.hero.cta.primary.href}
-                  color="primary"
+                  variant="bordered"
                   size="lg"
                   radius="full"
-                  className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold w-full sm:w-auto"
+                  className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300 w-full sm:w-auto"
                 >
                   {contentData.home.hero.cta.primary.text}
                 </Button>
@@ -66,7 +83,7 @@ export default function Home() {
                   variant="bordered"
                   size="lg"
                   radius="full"
-                  className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold border-primary text-primary bg-transparent hover:bg-primary hover:text-white w-full sm:w-auto"
+                  className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300 w-full sm:w-auto"
                 >
                   {contentData.home.hero.cta.secondary.text}
                 </Button>
@@ -79,7 +96,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="order-1 lg:order-2 w-full"
             >
-              <HeroSlider images={heroImages} autoPlayInterval={5000} />
+              <HeroSlider slides={heroSlides} autoPlayInterval={5000} />
             </motion.div>
           </div>
         </div>
