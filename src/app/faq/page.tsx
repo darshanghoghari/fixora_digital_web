@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { Button } from "@heroui/react";
 import { SITE_NAME } from "@/constants/navigation";
 
 const faqs = [
@@ -137,12 +139,16 @@ export default function FAQ() {
             <p className="text-lg text-muted-foreground mb-10">
               Can't find the answer you're looking for? Contact our support team.
             </p>
-            <a
+            <Button
+              as={Link}
               href="/contact"
-              className="inline-block px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-white hover:text-primary hover:border-2 hover:border-primary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              variant="bordered"
+              size="lg"
+              radius="full"
+              className="px-8 py-6 text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300"
             >
               Contact Support
-            </a>
+            </Button>
           </motion.div>
         </div>
       </section>

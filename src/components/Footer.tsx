@@ -1,7 +1,23 @@
 import Link from "next/link";
 import { FOOTER_LINKS, SITE_NAME } from "@/constants/navigation";
 import Logo from "./Logo";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
+
+const XIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M18 6L6 18" strokeWidth="2.5" />
+    <path d="M6 6l12 12" strokeWidth="1.2" />
+    <path d="M7 7l10 10" strokeWidth="1.2" />
+  </svg>
+);
 import contentData from "@/data/content.json";
 
 export default function Footer() {
@@ -150,28 +166,28 @@ export default function Footer() {
               <div className="flex items-center gap-4">
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300"
                   aria-label="Facebook"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-                  aria-label="Twitter"
+                  className="w-10 h-10 rounded-full bg-white border-2 border-white flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300"
+                  aria-label="X (Twitter)"
                 >
-                  <Twitter className="w-5 h-5" />
+                  <XIcon className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:bg-[#0077B5] hover:border-[#0077B5] hover:text-white transition-all duration-300"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#FCB045] hover:border-transparent hover:text-white transition-all duration-300"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />

@@ -8,6 +8,7 @@ import contentData from "@/data/content.json";
 import HeroSlider from "@/components/HeroSlider";
 import AnimatedSVGBackground from "@/components/AnimatedSVGBackground";
 import InfiniteScrollServices from "@/components/InfiniteScrollServices";
+import PosterSection from "@/components/PosterSection";
 
 const features = contentData.home.features;
 
@@ -16,19 +17,22 @@ const heroSlides = [
     image: "/fixora_app_icon.png",
     title: "Manage Your Business",
     subtitle: "Easy Management",
-    description: "Streamline your operations with intuitive tools and dashboards."
+    description:
+      "Streamline your operations with intuitive tools and dashboards.",
   },
   {
     image: "/fixora_app_icon.png",
     title: "Expand Your Network",
     subtitle: "Grow Your Reach",
-    description: "Connect with more customers and expand your business network."
+    description:
+      "Connect with more customers and expand your business network.",
   },
   {
     image: "/fixora_app_icon.png",
     title: "Secure & Protected",
     subtitle: "Enterprise Security",
-    description: "Your data and transactions are protected with enterprise-grade security."
+    description:
+      "Your data and transactions are protected with enterprise-grade security.",
   },
 ];
 
@@ -52,7 +56,9 @@ export default function Home() {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-foreground leading-tight"
               >
                 {contentData.home.hero.title}{" "}
-                <span className="text-primary">{contentData.home.hero.titleHighlight}</span>
+                <span className="text-primary">
+                  {contentData.home.hero.titleHighlight}
+                </span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -124,10 +130,14 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
             {features.map((feature, index) => {
-              const IconComponent = 
-                feature.icon === "BarChart3" ? BarChart3 :
-                feature.icon === "Rocket" ? Rocket :
-                feature.icon === "Lock" ? Lock : BarChart3;
+              const IconComponent =
+                feature.icon === "BarChart3"
+                  ? BarChart3
+                  : feature.icon === "Rocket"
+                  ? Rocket
+                  : feature.icon === "Lock"
+                  ? Lock
+                  : BarChart3;
 
               return (
                 <motion.div
@@ -135,8 +145,8 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ 
-                    duration: 0.6, 
+                  transition={{
+                    duration: 0.6,
                     delay: index * 0.1,
                   }}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
@@ -157,6 +167,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PosterSection />
 
       <section className="py-20 md:py-24 bg-card">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -188,10 +200,10 @@ export default function Home() {
               <Button
                 as={Link}
                 href={contentData.home.cta.button.href}
-                color="primary"
+                variant="bordered"
                 size="lg"
                 radius="full"
-                className="px-8 py-6 text-base font-semibold"
+                className="px-8 py-6 text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300"
               >
                 {contentData.home.cta.button.text}
               </Button>

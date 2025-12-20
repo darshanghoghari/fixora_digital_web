@@ -2,24 +2,55 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import contentData from "@/data/content.json";
+import { Button } from "@heroui/react";
+import { Star, MessageSquare } from "lucide-react";
+import { SITE_NAME } from "@/constants/navigation";
+
+const sampleReviews = [
+  {
+    id: 1,
+    name: "Rajesh Kumar",
+    rating: 5,
+    comment: "Excellent platform! Very user-friendly and helped me grow my business significantly.",
+    date: "2 days ago",
+  },
+  {
+    id: 2,
+    name: "Priya Sharma",
+    rating: 5,
+    comment: "Best service provider app I've used. The booking system is seamless and efficient.",
+    date: "1 week ago",
+  },
+  {
+    id: 3,
+    name: "Amit Patel",
+    rating: 4,
+    comment: "Great features and excellent customer support. Highly recommended!",
+    date: "2 weeks ago",
+  },
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
+    rating: 0,
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hoveredStar, setHoveredStar] = useState(0);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData.rating === 0) {
+      alert("Please provide a rating");
+      return;
+    }
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
-      alert("Thank you for your message! We'll get back to you soon.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      alert("Thank you for your feedback! Your review has been submitted.");
+      setFormData({ name: "", email: "", rating: 0, message: "" });
     }, 1000);
   };
 
@@ -27,6 +58,10 @@ export default function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleStarClick = (rating: number) => {
+    setFormData({ ...formData, rating });
   };
 
   return (
@@ -39,11 +74,16 @@ export default function Contact() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl mx-auto text-center"
           >
+            <div className="inline-block mb-6">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg shadow-primary/30">
+                <MessageSquare className="w-10 h-10 text-white" />
+              </div>
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Get In Touch
+              Feedback Form
             </h1>
             <p className="text-xl text-muted-foreground">
-              Have questions? We'd love to hear from you
+              Share your experience and help us improve {SITE_NAME}
             </p>
           </motion.div>
         </div>
@@ -60,51 +100,45 @@ export default function Contact() {
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
                 <h2 className="text-3xl font-bold mb-8 text-foreground">
-                  Contact Information
+                  Recent Reviews
                 </h2>
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">
-                      Email
-                    </h3>
-                    <a
-                      href={`mailto:${contentData.site.email}`}
-                      className="text-primary hover:text-primary hover:bg-white px-3 py-1.5 rounded-md transition-all duration-300 inline-block"
+                <div className="space-y-6">
+                  {sampleReviews.map((review) => (
+                    <motion.div
+                      key={review.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                      className="bg-card p-6 rounded-xl border border-border hover:border-primary/30 transition-all duration-300"
                     >
-                      {contentData.site.email}
-                    </a>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">
-                      Phone
-                    </h3>
-                    <a
-                      href={`tel:${contentData.site.phone.replace(/\s/g, "")}`}
-                      className="text-primary hover:text-primary hover:bg-white px-3 py-1.5 rounded-md transition-all duration-300 inline-block"
-                    >
-                      {contentData.site.phone}
-                    </a>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">
-                      Office Hours
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {contentData.site.officeHours.weekdays}<br />
-                      {contentData.site.officeHours.saturday}<br />
-                      {contentData.site.officeHours.sunday}
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">
-                      Address
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {contentData.site.address.street}<br />
-                      {contentData.site.address.suite}<br />
-                      {contentData.site.address.city}, {contentData.site.address.state} {contentData.site.address.zip}
-                    </p>
-                  </div>
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <h3 className="text-lg font-semibold text-foreground mb-1">
+                            {review.name}
+                          </h3>
+                          <div className="flex items-center gap-1">
+                            {[...Array(5)].map((_, i) => (
+                              <Star
+                                key={i}
+                                className={`w-4 h-4 ${
+                                  i < review.rating
+                                    ? "fill-primary text-primary"
+                                    : "text-muted-foreground"
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                        <span className="text-sm text-muted-foreground">
+                          {review.date}
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {review.comment}
+                      </p>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
 
@@ -115,7 +149,7 @@ export default function Contact() {
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
                 <h2 className="text-3xl font-bold mb-8 text-foreground">
-                  Send Us a Message
+                  Share Your Feedback
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
@@ -153,28 +187,36 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium mb-2 text-foreground"
-                    >
-                      Subject
+                    <label className="block text-sm font-medium mb-3 text-foreground">
+                      Rating <span className="text-primary">*</span>
                     </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300"
-                    />
+                    <div className="flex items-center gap-2">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <button
+                          key={star}
+                          type="button"
+                          onClick={() => handleStarClick(star)}
+                          onMouseEnter={() => setHoveredStar(star)}
+                          onMouseLeave={() => setHoveredStar(0)}
+                          className="focus:outline-none"
+                        >
+                          <Star
+                            className={`w-8 h-8 transition-all duration-200 ${
+                              star <= (hoveredStar || formData.rating)
+                                ? "fill-primary text-primary"
+                                : "text-muted-foreground"
+                            }`}
+                          />
+                        </button>
+                      ))}
+                    </div>
                   </div>
                   <div>
                     <label
                       htmlFor="message"
                       className="block text-sm font-medium mb-2 text-foreground"
                     >
-                      Message
+                      Your Review
                     </label>
                     <textarea
                       id="message"
@@ -183,16 +225,21 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={6}
+                      placeholder="Share your experience with us..."
                       className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 resize-none"
                     />
                   </div>
-                  <button
+                  <Button
                     type="submit"
+                    variant="bordered"
+                    size="lg"
+                    radius="full"
+                    className="w-full px-8 py-6 text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300"
+                    isLoading={isSubmitting}
                     disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-white hover:text-primary hover:border-2 hover:border-primary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary disabled:hover:text-white disabled:hover:border-0 disabled:hover:translate-y-0"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </button>
+                    {isSubmitting ? "Submitting..." : "Submit Feedback"}
+                  </Button>
                 </form>
               </motion.div>
             </div>

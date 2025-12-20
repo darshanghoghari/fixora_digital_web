@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { Button } from "@heroui/react";
 import { SITE_NAME } from "@/constants/navigation";
 
 export default function HowItWorks() {
@@ -61,14 +63,24 @@ export default function HowItWorks() {
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                   className="flex flex-col md:flex-row items-start gap-8 lg:gap-12"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 + 0.2, type: "spring", stiffness: 200, damping: 15 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.1 + 0.2,
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15,
+                    }}
                     className="flex-shrink-0"
                   >
                     <div className="w-20 h-20 lg:w-24 lg:h-24 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-2xl font-bold shadow-lg">
@@ -105,16 +117,19 @@ export default function HowItWorks() {
             <p className="text-lg text-muted-foreground mb-10">
               Join thousands of providers already using our platform
             </p>
-            <a
+            <Button
+              as={Link}
               href="/download"
-              className="inline-block px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-white hover:text-primary hover:border-2 hover:border-primary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              variant="bordered"
+              size="lg"
+              radius="full"
+              className="px-8 py-6 text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300"
             >
               Download Now
-            </a>
+            </Button>
           </motion.div>
         </div>
       </section>
     </div>
   );
 }
-
