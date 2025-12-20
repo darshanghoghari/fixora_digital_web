@@ -7,6 +7,7 @@ import { Button } from "@heroui/react";
 import contentData from "@/data/content.json";
 import HeroSlider from "@/components/HeroSlider";
 import AnimatedSVGBackground from "@/components/AnimatedSVGBackground";
+import InfiniteScrollServices from "@/components/InfiniteScrollServices";
 
 const features = contentData.home.features;
 
@@ -101,6 +102,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <InfiniteScrollServices />
 
       <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

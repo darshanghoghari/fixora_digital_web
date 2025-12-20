@@ -33,30 +33,60 @@ export default function Loader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-white/80 backdrop-blur-md"
         >
-          <div className="flex flex-col items-center space-y-6">
-            <motion.div
-              animate={{
-                scale: [1, 1.1, 1],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="w-20 h-20 md:w-24 md:h-24 relative"
-            >
-              <Image
-                src="/fixora_app_icon.png"
-                alt="FIXORA Logo"
-                width={96}
-                height={96}
-                className="w-full h-full object-contain"
-                priority
-                unoptimized
+          <div className="flex flex-col items-center space-y-8">
+            <div className="relative w-32 h-32 md:w-36 md:h-36 flex items-center justify-center">
+              {/* Simple rotating ring */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute inset-0 border-2 border-black/30 rounded-full"
               />
-            </motion.div>
+
+              {/* Gentle pulsing ring */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.15, 1],
+                  opacity: [0.4, 0.7, 0.4],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-3 border-2 border-black/50 rounded-full"
+              />
+
+              {/* Logo with gentle pulse */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.08, 1],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="w-20 h-20 md:w-24 md:h-24 relative z-10"
+              >
+                <Image
+                  src="/fixora_app_icon.png"
+                  alt="FIXORA Logo"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-contain"
+                  priority
+                  unoptimized
+                />
+              </motion.div>
+            </div>
+
+            {/* Simple loading dots */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -66,15 +96,15 @@ export default function Loader() {
               {[0, 1, 2].map((i) => (
                 <motion.div
                   key={i}
-                  className="w-2 h-2 rounded-full bg-primary"
+                  className="w-2 h-2 rounded-full bg-black"
                   animate={{
-                    scale: [1, 1.5, 1],
+                    scale: [1, 1.3, 1],
                     opacity: [0.5, 1, 0.5],
                   }}
                   transition={{
                     duration: 1,
                     repeat: Infinity,
-                    delay: i * 0.2,
+                    delay: i * 0.15,
                     ease: "easeInOut",
                   }}
                 />
@@ -86,4 +116,3 @@ export default function Loader() {
     </AnimatePresence>
   );
 }
-
