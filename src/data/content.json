@@ -50,7 +50,7 @@
       { "href": "/features", "label": "Features" },
       { "href": "/download", "label": "Download" },
       { "href": "/faq", "label": "FAQ" },
-      { "href": "/contact", "label": "Feedback" }
+      { "href": "/feedback", "label": "Feedback" }
     ],
     "footer": {
       "product": [
@@ -59,7 +59,7 @@
       ],
       "company": [
         { "href": "/about", "label": "About" },
-        { "href": "/contact", "label": "Feedback" },
+        { "href": "/feedback", "label": "Feedback" },
         { "href": "/faq", "label": "FAQ" }
       ],
       "resources": [
@@ -347,10 +347,10 @@
     "cta": {
       "title": "Still Have Questions?",
       "description": "Can't find the answer you're looking for? Contact our support team.",
-      "button": { "text": "Contact Support", "href": "/contact" }
+      "button": { "text": "Contact Support", "href": "/feedback" }
     }
   },
-  "contact": {
+  "feedback": {
     "title": "Get In Touch",
     "subtitle": "Have questions? We'd love to hear from you",
     "form": {

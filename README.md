@@ -50,7 +50,7 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
@@ -87,7 +87,7 @@ npm run dev
 - **Pricing** (`/pricing`) - Commission and pricing models
 - **Download** (`/download`) - App download links and requirements
 - **FAQ** (`/faq`) - Frequently asked questions with accordion
-- **Contact** (`/contact`) - Contact form and support information
+- **Feedback** (`/feedback`) - Feedback form and support information
 
 ## SEO Features
 
@@ -140,6 +140,7 @@ The easiest way to deploy is using [Vercel](https://vercel.com):
 ### Other Platforms
 
 This Next.js app can be deployed to any platform that supports Next.js:
+
 - Netlify
 - AWS Amplify
 - Railway

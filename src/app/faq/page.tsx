@@ -83,7 +83,11 @@ export default function FAQ() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.05,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                   className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-border hover:border-primary/30"
                 >
                   <button
@@ -137,11 +141,12 @@ export default function FAQ() {
               Still Have Questions?
             </h2>
             <p className="text-lg text-muted-foreground mb-10">
-              Can't find the answer you're looking for? Contact our support team.
+              Can't find the answer you're looking for? Contact our support
+              team.
             </p>
             <Button
               as={Link}
-              href="/contact"
+              href="/feedback"
               variant="bordered"
               size="lg"
               radius="full"
@@ -155,4 +160,3 @@ export default function FAQ() {
     </div>
   );
 }
-
