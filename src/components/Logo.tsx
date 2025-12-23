@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 interface LogoProps {
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
 }
 
 export default function Logo({ className, size = "md" }: LogoProps) {
@@ -15,6 +15,7 @@ export default function Logo({ className, size = "md" }: LogoProps) {
     sm: "w-12 h-12",
     md: "w-16 h-16",
     lg: "w-24 h-24",
+    xl: "w-32 h-32",
   };
 
   return (
@@ -28,8 +29,8 @@ export default function Logo({ className, size = "md" }: LogoProps) {
         <Image
           src="/fixora_app_icon.png"
           alt="FIXORA Logo"
-          width={size === "sm" ? 48 : size === "md" ? 64 : 96}
-          height={size === "sm" ? 48 : size === "md" ? 64 : 96}
+          width={size === "sm" ? 48 : size === "md" ? 64 : size === "lg" ? 96 : 128}
+          height={size === "sm" ? 48 : size === "md" ? 64 : size === "lg" ? 96 : 128}
           className="w-full h-full object-contain"
           priority
           unoptimized
