@@ -27,49 +27,57 @@ export default function Services() {
     {
       icon: UserCircle,
       title: "Account Management",
-      description: "Quick registration with Phone/Email and secure OTP verification for instant access",
+      description:
+        "Quick registration with Phone/Email and secure OTP verification for instant access",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Search,
       title: "Service Discovery",
-      description: "Browse through comprehensive service categories with advanced search and filters",
+      description:
+        "Browse through comprehensive service categories with advanced search and filters",
       color: "from-purple-500 to-pink-500",
     },
     {
       icon: Calendar,
       title: "Smart Booking",
-      description: "Select preferred date, time, and location with real-time availability checking",
+      description:
+        "Select preferred date, time, and location with real-time availability checking",
       color: "from-green-500 to-emerald-500",
     },
     {
       icon: CreditCard,
       title: "Flexible Payments",
-      description: "Multiple payment options including UPI, Credit/Debit Cards, and Cash on Delivery",
+      description:
+        "Multiple payment options including UPI, Credit/Debit Cards, and Cash on Delivery",
       color: "from-orange-500 to-red-500",
     },
     {
       icon: Bell,
       title: "Instant Notifications",
-      description: "Receive SMS and Push notifications for booking confirmations and updates",
+      description:
+        "Receive SMS and Push notifications for booking confirmations and updates",
       color: "from-yellow-500 to-amber-500",
     },
     {
       icon: MapPin,
       title: "Live Tracking",
-      description: "Track booking status in real-time: Accepted, In Progress, Completed",
+      description:
+        "Track booking status in real-time: Accepted, In Progress, Completed",
       color: "from-indigo-500 to-blue-500",
     },
     {
       icon: Star,
       title: "Reviews & Ratings",
-      description: "Share your experience and help build a trusted service community",
+      description:
+        "Share your experience and help build a trusted service community",
       color: "from-pink-500 to-rose-500",
     },
     {
       icon: History,
       title: "Service Archive",
-      description: "Access complete booking history and receipts anytime, anywhere",
+      description:
+        "Access complete booking history and receipts anytime, anywhere",
       color: "from-teal-500 to-cyan-500",
     },
   ];
@@ -78,19 +86,22 @@ export default function Services() {
     {
       icon: Shield,
       title: "Verified Registration",
-      description: "Secure KYC verification process to build trust and credibility",
+      description:
+        "Secure KYC verification process to build trust and credibility",
       color: "from-blue-600 to-indigo-600",
     },
     {
       icon: Briefcase,
       title: "Service Portfolio",
-      description: "Create and manage your service offerings with detailed descriptions",
+      description:
+        "Create and manage your service offerings with detailed descriptions",
       color: "from-purple-600 to-violet-600",
     },
     {
       icon: CheckCircle2,
       title: "Booking Management",
-      description: "Efficiently accept or reject booking requests with smart notifications",
+      description:
+        "Efficiently accept or reject booking requests with smart notifications",
       color: "from-green-600 to-teal-600",
     },
     {
@@ -102,7 +113,8 @@ export default function Services() {
     {
       icon: CreditCard,
       title: "Earnings Dashboard",
-      description: "Track earnings, view payment history, and manage financials",
+      description:
+        "Track earnings, view payment history, and manage financials",
       color: "from-emerald-600 to-green-600",
     },
   ];
@@ -110,7 +122,8 @@ export default function Services() {
   const benefits = [
     {
       title: "Seamless User Experience",
-      description: "Intuitive interface designed for effortless navigation and smooth interactions across all devices",
+      description:
+        "Intuitive interface designed for effortless navigation and smooth interactions across all devices",
       icon: Sparkles,
       stat: "99.9%",
       statLabel: "Uptime",
@@ -118,7 +131,8 @@ export default function Services() {
     },
     {
       title: "Real-time Notifications",
-      description: "Instant SMS and push notifications keep you informed at every step of the booking process",
+      description:
+        "Instant SMS and push notifications keep you informed at every step of the booking process",
       icon: Bell,
       stat: "< 2s",
       statLabel: "Response Time",
@@ -126,7 +140,8 @@ export default function Services() {
     },
     {
       title: "Bank-Level Security",
-      description: "Enterprise-grade encryption and secure payment processing for all transactions",
+      description:
+        "Enterprise-grade encryption and secure payment processing for all transactions",
       icon: Shield,
       stat: "100%",
       statLabel: "Secure",
@@ -134,7 +149,8 @@ export default function Services() {
     },
     {
       title: "24/7 Platform Access",
-      description: "Round-the-clock availability - access your account and services anytime, anywhere",
+      description:
+        "Round-the-clock availability - access your account and services anytime, anywhere",
       icon: History,
       stat: "24/7",
       statLabel: "Available",
@@ -142,7 +158,8 @@ export default function Services() {
     },
     {
       title: "Advanced Analytics",
-      description: "Comprehensive insights and performance metrics to track growth and optimize operations",
+      description:
+        "Comprehensive insights and performance metrics to track growth and optimize operations",
       icon: TrendingUp,
       stat: "50%+",
       statLabel: "Growth",
@@ -150,7 +167,8 @@ export default function Services() {
     },
     {
       title: "Dedicated Support",
-      description: "Expert support team available round-the-clock to assist with any queries or issues",
+      description:
+        "Expert support team available round-the-clock to assist with any queries or issues",
       icon: UserCircle,
       stat: "24/7",
       statLabel: "Support",
@@ -182,7 +200,8 @@ export default function Services() {
               Complete Platform Solution
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Powerful applications designed for seamless service booking and business management
+              Powerful applications designed for seamless service booking and
+              business management
             </p>
           </motion.div>
 
@@ -201,7 +220,8 @@ export default function Services() {
                       Client Portal
                     </h2>
                     <p className="text-muted-foreground mt-2">
-                      User-friendly mobile application for seamless service booking experience
+                      User-friendly mobile application for seamless service
+                      booking experience
                     </p>
                   </div>
                 </div>
@@ -273,7 +293,7 @@ export default function Services() {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg"
               >
-                <ArrowRight className="w-8 h-8 text-white rotate-90" />
+                <ArrowRight className="w-8 h-8 text-primary rotate-90" />
               </motion.div>
             </motion.div>
 
@@ -291,7 +311,8 @@ export default function Services() {
                       Business Hub
                     </h2>
                     <p className="text-muted-foreground mt-2">
-                      Comprehensive platform for service providers to manage and grow their business
+                      Comprehensive platform for service providers to manage and
+                      grow their business
                     </p>
                   </div>
                 </div>
@@ -300,7 +321,8 @@ export default function Services() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
                 {businessHubFeatures.map((feature, index) => {
                   const Icon = feature.icon;
-                  const isHovered = hoveredIndex === clientPortalFeatures.length + index;
+                  const isHovered =
+                    hoveredIndex === clientPortalFeatures.length + index;
 
                   return (
                     <motion.div
@@ -383,7 +405,8 @@ export default function Services() {
                     Platform Benefits
                   </h2>
                   <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Experience the advantages of our comprehensive service platform designed for success
+                    Experience the advantages of our comprehensive service
+                    platform designed for success
                   </p>
                 </motion.div>
 
@@ -420,7 +443,10 @@ export default function Services() {
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
+                                transition={{
+                                  duration: 0.4,
+                                  delay: index * 0.1 + 0.2,
+                                }}
                                 className="text-right"
                               >
                                 <div className="text-2xl font-bold text-primary">

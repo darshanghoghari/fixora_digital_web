@@ -10,7 +10,7 @@
   --color-card-foreground: 0 0% 10%;
   --color-popover: 0 0% 100%;
   --color-popover-foreground: 0 0% 10%;
-  --color-primary: 217 91% 60%;
+  --color-primary: 208 59% 17%;
   --color-primary-foreground: 0 0% 100%;
   --color-secondary: 24.6 95% 53.1%;
   --color-secondary-foreground: 0 0% 100%;
@@ -22,7 +22,7 @@
   --color-destructive-foreground: 0 0% 100%;
   --color-border: 0 0% 90%;
   --color-input: 0 0% 96%;
-  --color-ring: 217 91% 60%;
+  --color-ring: 208 59% 17%;
   --radius: 0.5rem;
 }
 
