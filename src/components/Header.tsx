@@ -43,10 +43,10 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground hover:text-primary px-4 py-2 rounded-md transition-all duration-300 font-medium relative group"
+                className="text-foreground hover:text-[hsl(var(--color-secondary))] px-4 py-2 rounded-md transition-all duration-300 font-medium relative group"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[hsl(var(--color-secondary))] group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </div>
@@ -57,6 +57,7 @@ export default function Header() {
               isIconOnly
               onPress={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
+              className="text-foreground"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -95,7 +96,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block py-3 px-4 rounded-md text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 font-medium"
+                      className="block py-3 px-4 rounded-md text-foreground hover:text-[hsl(var(--color-secondary))] hover:underline hover:bg-[hsl(var(--color-secondary))]/10 transition-all duration-300 font-medium"
                     >
                       {link.label}
                     </Link>
@@ -109,4 +110,3 @@ export default function Header() {
     </header>
   );
 }
-

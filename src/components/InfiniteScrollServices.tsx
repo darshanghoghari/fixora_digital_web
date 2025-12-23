@@ -94,7 +94,7 @@ export default function InfiniteScrollServices() {
                 >
                   <div className="flex flex-col items-center">
                     <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-white border-2 border-border group-hover:border-primary/50 flex items-center justify-center transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/20 group-hover:scale-105 mb-3">
-                      <IconComponent className="w-12 h-12 md:w-14 md:h-14 text-black" />
+                      <IconComponent className="w-12 h-12 md:w-14 md:h-14 text-primary" />
                     </div>
                     <h3 className="text-sm md:text-base font-bold text-foreground group-hover:text-primary transition-colors text-center">
                       {service.name}

@@ -45,7 +45,7 @@ export default function Loader() {
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="absolute inset-0 border-2 border-black/30 rounded-full"
+                className="absolute inset-0 border-2 border-primary/30 rounded-full"
               />
 
               {/* Gentle pulsing ring */}
@@ -59,7 +59,7 @@ export default function Loader() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute inset-3 border-2 border-black/50 rounded-full"
+                className="absolute inset-3 border-2 border-primary/50 rounded-full"
               />
 
               {/* Logo with gentle pulse */}
@@ -96,7 +96,7 @@ export default function Loader() {
               {[0, 1, 2].map((i) => (
                 <motion.div
                   key={i}
-                  className="w-2 h-2 rounded-full bg-black"
+                  className="w-2 h-2 rounded-full bg-primary"
                   animate={{
                     scale: [1, 1.3, 1],
                     opacity: [0.5, 1, 0.5],

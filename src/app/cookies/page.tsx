@@ -197,7 +197,7 @@ export default function Cookies() {
                   You can change your cookie preferences at any time by visiting this page. Please note that disabling certain cookies may affect the functionality of our website.
                 </p>
                 <p>
-                  For more information about how we use cookies and your privacy rights, please review our <a href="/privacy" className="text-primary hover:text-primary/80 transition-colors">Privacy Policy</a>.
+                  For more information about how we use cookies and your privacy rights, please review our <a href="/privacy" className="text-primary hover:text-[hsl(var(--color-secondary))] hover:underline transition-colors">Privacy Policy</a>.
                 </p>
               </div>
             </motion.div>
@@ -231,7 +231,7 @@ export default function Cookies() {
                 size="lg"
                 radius="full"
                 variant="bordered"
-                className="px-8 py-6 text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300"
+                className="px-8 py-6 text-base font-semibold !border-[hsl(var(--color-primary))] border-2 text-[hsl(var(--color-primary))] bg-transparent hover:!bg-[hsl(var(--color-primary))] hover:!text-white transition-all duration-300"
               >
                 Save Preferences
               </Button>

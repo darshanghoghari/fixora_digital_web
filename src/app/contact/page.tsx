@@ -234,7 +234,7 @@ export default function Contact() {
                     variant="bordered"
                     size="lg"
                     radius="full"
-                    className="w-full px-8 py-6 text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300"
+                    className="w-full px-8 py-6 text-base font-semibold !border-[hsl(var(--color-primary))] border-2 text-[hsl(var(--color-primary))] bg-transparent hover:!bg-[hsl(var(--color-primary))] hover:!text-white transition-all duration-300"
                     isLoading={isSubmitting}
                     disabled={isSubmitting}
                   >

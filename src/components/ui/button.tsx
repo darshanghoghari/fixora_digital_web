@@ -16,10 +16,10 @@ const buttonVariants = cva(
         outline:
           "border-2 border-[hsl(var(--color-primary))] bg-transparent text-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))] hover:text-white hover:shadow-lg hover:-translate-y-0.5",
         secondary:
-          "bg-[hsl(var(--color-secondary))] text-[hsl(var(--color-secondary-foreground))] hover:bg-white hover:text-[hsl(var(--color-primary))] hover:border-2 hover:border-[hsl(var(--color-primary))] shadow-md hover:shadow-lg hover:-translate-y-0.5",
+          "bg-[hsl(var(--color-secondary))] text-[hsl(var(--color-secondary-foreground))] hover:bg-white hover:text-[hsl(var(--color-secondary))] hover:border-2 hover:border-[hsl(var(--color-secondary))] shadow-md hover:shadow-lg hover:-translate-y-0.5",
         ghost:
           "hover:bg-[hsl(var(--color-primary))] hover:text-white hover:shadow-md hover:-translate-y-0.5",
-        link: "text-[hsl(var(--color-primary))] underline-offset-4 hover:underline hover:text-[hsl(var(--color-primary))]/80",
+        link: "text-[hsl(var(--color-primary))] underline-offset-4 hover:underline hover:text-[hsl(var(--color-secondary))]",
       },
       size: {
         default: "h-10 px-4 py-2",

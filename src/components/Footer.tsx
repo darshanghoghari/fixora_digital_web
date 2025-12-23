@@ -8,6 +8,7 @@ import {
   Facebook,
   Linkedin,
   Instagram,
+  ChevronRight,
 } from "lucide-react";
 
 const XIcon = ({ className }: { className?: string }) => (
@@ -36,7 +37,7 @@ export default function Footer() {
         <div className="py-12 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10">
             <div className="col-span-1 sm:col-span-2 lg:col-span-2">
-              <Logo size="md" className="mb-4" />
+              <Logo size="xl" className="mb-4" />
               <p className="text-muted-foreground max-w-md mb-5 leading-relaxed text-sm">
                 {siteData.description}
               </p>
@@ -54,7 +55,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                   <a
                     href={`tel:${siteData.phone}`}
-                    className="text-muted-foreground hover:text-primary transition-colors text-xs sm:text-sm whitespace-nowrap"
+                    className="text-muted-foreground hover:text-[hsl(var(--color-secondary))] hover:underline transition-colors text-xs sm:text-sm whitespace-nowrap"
                   >
                     {siteData.phone}
                   </a>
@@ -63,7 +64,7 @@ export default function Footer() {
                   <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                   <a
                     href={`mailto:${siteData.email}`}
-                    className="text-muted-foreground hover:text-primary transition-colors text-xs sm:text-sm break-all sm:break-normal"
+                    className="text-muted-foreground hover:text-[hsl(var(--color-secondary))] hover:underline transition-colors text-xs sm:text-sm break-all sm:break-normal"
                   >
                     {siteData.email}
                   </a>
@@ -80,9 +81,10 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-muted-foreground hover:text-primary transition-all duration-300 text-xs sm:text-sm inline-block group"
+                      className="text-muted-foreground hover:text-[hsl(var(--color-secondary))] hover:underline transition-all duration-300 ease-in-out text-xs sm:text-sm inline-flex items-center gap-2 group"
                     >
-                      <span className="group-hover:translate-x-1 inline-block transition-transform">
+                      <ChevronRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
+                      <span className="group-hover:translate-x-1 inline-block transition-transform duration-300 ease-in-out">
                         {link.label}
                       </span>
                     </Link>
@@ -100,9 +102,10 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-muted-foreground hover:text-primary transition-all duration-300 text-xs sm:text-sm inline-block group"
+                      className="text-muted-foreground hover:text-[hsl(var(--color-secondary))] hover:underline transition-all duration-300 ease-in-out text-xs sm:text-sm inline-flex items-center gap-2 group"
                     >
-                      <span className="group-hover:translate-x-1 inline-block transition-transform">
+                      <ChevronRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
+                      <span className="group-hover:translate-x-1 inline-block transition-transform duration-300 ease-in-out">
                         {link.label}
                       </span>
                     </Link>
@@ -121,9 +124,10 @@ export default function Footer() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-muted-foreground hover:text-primary transition-all duration-300 text-xs sm:text-sm inline-block group"
+                        className="text-muted-foreground hover:text-[hsl(var(--color-secondary))] hover:underline transition-all duration-300 ease-in-out text-xs sm:text-sm inline-flex items-center gap-2 group"
                       >
-                        <span className="group-hover:translate-x-1 inline-block transition-transform">
+                        <ChevronRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
+                        <span className="group-hover:translate-x-1 inline-block transition-transform duration-300 ease-in-out">
                           {link.label}
                         </span>
                       </Link>
@@ -141,7 +145,7 @@ export default function Footer() {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2.5 bg-[#000000] hover:bg-[#1a1a1a] text-white px-4 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                  className="inline-flex items-center gap-2.5 bg-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))]/90 text-white px-4 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
                   aria-label="Download on App Store"
                 >
                   <svg
@@ -162,7 +166,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2.5 bg-[#000000] hover:bg-[#1a1a1a] text-white px-4 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                  className="inline-flex items-center gap-2.5 bg-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))]/90 text-white px-4 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
                   aria-label="Get it on Google Play"
                 >
                   <svg
@@ -199,7 +203,7 @@ export default function Footer() {
                   </a>
                   <a
                     href="#"
-                    className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-transparent border-2 border-white flex items-center justify-center text-white hover:bg-white hover:border-white hover:text-black transition-all duration-300"
+                    className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:bg-[#000000] hover:border-[#000000] hover:text-white transition-all duration-300"
                     aria-label="X (Twitter)"
                   >
                     <XIcon className="w-4 h-4" />
@@ -222,20 +226,23 @@ export default function Footer() {
                 <div className="flex flex-wrap justify-center md:justify-end gap-3 md:gap-4 text-xs md:text-sm">
                   <Link
                     href="/privacy"
-                    className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                    className="text-muted-foreground hover:text-[hsl(var(--color-secondary))] hover:underline transition-all duration-300 ease-in-out whitespace-nowrap inline-flex items-center gap-1.5 group"
                   >
+                    <ChevronRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
                     Privacy Policy
                   </Link>
                   <Link
                     href="/terms"
-                    className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                    className="text-muted-foreground hover:text-[hsl(var(--color-secondary))] hover:underline transition-all duration-300 ease-in-out whitespace-nowrap inline-flex items-center gap-1.5 group"
                   >
+                    <ChevronRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
                     Terms of Service
                   </Link>
                   <Link
                     href="/cookies"
-                    className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                    className="text-muted-foreground hover:text-[hsl(var(--color-secondary))] hover:underline transition-all duration-300 ease-in-out whitespace-nowrap inline-flex items-center gap-1.5 group"
                   >
+                    <ChevronRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
                     Cookie Settings
                   </Link>
                 </div>

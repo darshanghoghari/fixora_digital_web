@@ -155,7 +155,7 @@ export default function Privacy() {
                 If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
               </p>
               <p className="text-muted-foreground">
-                Email: <a href="mailto:support@fixora.com" className="text-primary hover:text-primary/80 transition-colors">support@fixora.com</a>
+                Email: <a href="mailto:support@fixora.com" className="text-primary hover:text-[hsl(var(--color-secondary))] hover:underline transition-colors">support@fixora.com</a>
               </p>
             </motion.div>
 

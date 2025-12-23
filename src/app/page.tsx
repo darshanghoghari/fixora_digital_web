@@ -80,7 +80,7 @@ export default function Home() {
                   variant="bordered"
                   size="lg"
                   radius="full"
-                  className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300 w-full sm:w-auto"
+                  className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold !border-[hsl(var(--color-primary))] border-2 text-[hsl(var(--color-primary))] bg-transparent hover:!bg-[hsl(var(--color-primary))] hover:!text-white transition-all duration-300 w-full sm:w-auto"
                 >
                   {contentData.home.hero.cta.primary.text}
                 </Button>
@@ -90,7 +90,7 @@ export default function Home() {
                   variant="bordered"
                   size="lg"
                   radius="full"
-                  className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300 w-full sm:w-auto"
+                  className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold !border-[hsl(var(--color-secondary))] border-2 text-[hsl(var(--color-secondary))] bg-transparent hover:!bg-[hsl(var(--color-secondary))] hover:!text-white transition-all duration-300 w-full sm:w-auto"
                 >
                   {contentData.home.hero.cta.secondary.text}
                 </Button>
@@ -203,7 +203,7 @@ export default function Home() {
                 variant="bordered"
                 size="lg"
                 radius="full"
-                className="px-8 py-6 text-base font-semibold !border-white border-2 text-white bg-transparent hover:!bg-white hover:!text-black transition-all duration-300"
+                className="px-8 py-6 text-base font-semibold !border-[hsl(var(--color-primary))] border-2 text-[hsl(var(--color-primary))] bg-transparent hover:!bg-[hsl(var(--color-primary))] hover:!text-white transition-all duration-300"
               >
                 {contentData.home.cta.button.text}
               </Button>
