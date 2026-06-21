@@ -1,582 +1,355 @@
 "use client";
 
+import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
-import { SITE_NAME } from "@/constants/navigation";
-import { Target, Lightbulb, Rocket, Users, Award, Heart, Code, Briefcase, Linkedin, Mail, Github } from "lucide-react";
-import Image from "next/image";
-import Logo from "@/components/Logo";
+import {
+  ClipboardCheck, Users, MapPin, Star,
+  Target, Eye, ShieldCheck, Lock, Zap, Tag,
+  Lightbulb, Code, Rocket, BarChart2,
+  Linkedin, Mail, ArrowRight, Download
+} from "lucide-react";
+import Link from "next/link";
+import { AppleStoreButton, GooglePlayButton } from "@/components/StoreButtons";
+export default function AboutPage() {
+  const stats = [
+    { icon: ClipboardCheck, title: "50,000+", subtitle: "Bookings Completed" },
+    { icon: Users, title: "5,000+", subtitle: "Verified Providers" },
+    { icon: MapPin, title: "100+", subtitle: "Cities Served" },
+    { icon: Star, title: "4.8★", subtitle: "Customer Rating" },
+  ];
 
-export default function About() {
-  const visionPoints = [
+  const whyChooseUs = [
     {
-      icon: Target,
-      title: "Empower Service Providers",
-      description: "Create opportunities for service providers to grow and succeed in the digital economy",
+      icon: ShieldCheck,
+      title: "Verified Professionals",
+      desc: "All service providers are background-verified and highly skilled.",
     },
     {
-      icon: Lightbulb,
-      title: "Innovation First",
-      description: "Continuously evolve with cutting-edge technology to deliver the best user experience",
+      icon: Lock,
+      title: "Secure & Safe",
+      desc: "Your safety and security are our top priorities always.",
     },
     {
-      icon: Rocket,
-      title: "Scale Globally",
-      description: "Build a platform that connects millions of customers with trusted service providers worldwide",
+      icon: Zap,
+      title: "Fast & Reliable",
+      desc: "Quick booking and on-time service delivery you can count on.",
     },
     {
-      icon: Users,
-      title: "Community Driven",
-      description: "Foster a thriving community where both customers and providers benefit from seamless interactions",
+      icon: Tag,
+      title: "Transparent Pricing",
+      desc: "No hidden charges. What you see is what you pay.",
     },
   ];
 
-  const storyTimeline = [
+  const journey = [
     {
       year: "2023",
-      title: "The Beginning",
-      description: "The idea was born from recognizing the challenges service providers face in connecting with customers and managing their businesses efficiently.",
+      title: "Idea Born",
+      desc: "We identified the gaps in the home services industry and came up with a solution.",
+      icon: Lightbulb,
     },
     {
       year: "2024",
-      title: "Development Phase",
-      description: "Months of research, development, and testing led to the creation of a comprehensive platform that simplifies service booking and management.",
+      title: "Platform Development",
+      desc: "Built a robust platform focused on trust, quality and experience.",
+      icon: Code,
     },
     {
-      year: "2024",
-      title: "Launch",
-      description: "FIXORA was launched with a mission to revolutionize how service providers connect with customers and grow their businesses.",
+      year: "2025",
+      title: "Public Launch",
+      desc: "Launched Fixora to connect customers and service providers seamlessly.",
+      icon: Rocket,
     },
     {
-      year: "Future",
-      title: "Our Journey Continues",
-      description: "We continue to innovate and expand, bringing new features and capabilities to help service providers reach new heights.",
+      year: "2026",
+      title: "Nationwide Expansion",
+      desc: "Expanding across India and adding more services every day.",
+      icon: BarChart2,
     },
   ];
 
-  const teamMembers = {
-    founders: [
-      {
-        name: "[Founder Name 1]",
-        role: "Founder & CEO",
-        image: "/placeholder-founder.jpg",
-        bio: "Visionary leader with a passion for transforming the service industry through innovative technology solutions.",
-        linkedin: "#",
-        email: "founder1@fixora.com",
-        github: "#",
-      },
-      {
-        name: "[Founder Name 2]",
-        role: "Co-Founder & CTO",
-        image: "/placeholder-founder.jpg",
-        bio: "Technical expert driving innovation and ensuring our platform delivers exceptional performance and user experience.",
-        linkedin: "#",
-        email: "founder2@fixora.com",
-        github: "#",
-      },
-    ],
-    coFounders: [
-      {
-        name: "[Co-Founder Name 1]",
-        role: "Co-Founder & COO",
-        image: "/placeholder-cofounder.jpg",
-        bio: "Operations specialist focused on scaling the business and ensuring smooth day-to-day operations.",
-        linkedin: "#",
-        email: "cofounder1@fixora.com",
-        github: "#",
-      },
-      {
-        name: "[Co-Founder Name 2]",
-        role: "Co-Founder & CMO",
-        image: "/placeholder-cofounder.jpg",
-        bio: "Marketing strategist building brand awareness and connecting with our community of service providers.",
-        linkedin: "#",
-        email: "cofounder2@fixora.com",
-        github: "#",
-      },
-    ],
-    developers: [
-      {
-        name: "[Developer Name 1]",
-        role: "Senior Full Stack Developer",
-        image: "/placeholder-dev.jpg",
-        bio: "Expert in building scalable applications with expertise in modern web technologies.",
-        linkedin: "#",
-        email: "dev1@fixora.com",
-        github: "#",
-      },
-      {
-        name: "[Developer Name 2]",
-        role: "Frontend Developer",
-        image: "/placeholder-dev.jpg",
-        bio: "Creating beautiful and intuitive user interfaces that enhance user experience.",
-        linkedin: "#",
-        email: "dev2@fixora.com",
-        github: "#",
-      },
-      {
-        name: "[Developer Name 3]",
-        role: "Backend Developer",
-        image: "/placeholder-dev.jpg",
-        bio: "Building robust and secure backend systems that power our platform.",
-        linkedin: "#",
-        email: "dev3@fixora.com",
-        github: "#",
-      },
-      {
-        name: "[Developer Name 4]",
-        role: "Mobile Developer",
-        image: "/placeholder-dev.jpg",
-        bio: "Developing native mobile applications for iOS and Android platforms.",
-        linkedin: "#",
-        email: "dev4@fixora.com",
-        github: "#",
-      },
-    ],
-  };
+  const leadership = [
+    {
+      name: "Rohit Verma",
+      title: "Founder & CEO",
+      desc: "Visionary leader with a passion for innovation and building impactful technology solutions.",
+    },
+    {
+      name: "Amit Singh",
+      title: "Co-Founder & CTO",
+      desc: "Tech enthusiast driving product innovation and platform excellence.",
+    },
+    {
+      name: "Priya Sharma",
+      title: "Co-Founder & CCO",
+      desc: "Operations expert ensuring seamless service delivery and customer satisfaction.",
+    },
+    {
+      name: "Kunal Patel",
+      title: "Head of Growth",
+      desc: "Growth strategist focused on scaling Fixora and building strong partnerships.",
+    },
+  ];
 
   return (
-    <div className="min-h-screen">
-      <section className="relative py-16 md:py-20 bg-gradient-to-br from-card via-background to-card overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-block mb-6"
-            >
-              <Logo size="lg" className="pointer-events-none" />
-            </motion.div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-              About {SITE_NAME}
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Empowering service providers to connect, grow, and succeed in the digital economy
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="bg-white text-gray-900 min-h-screen font-sans">
 
-      <section className="py-16 md:py-20 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-12"
-            >
-              <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8 mb-10">
-                <div className="flex-shrink-0">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 md:mb-0">
-                    Our Vision
-                  </h2>
-                </div>
-                <div className="flex-1">
-                  <div className="space-y-6">
-                    <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.1 }}
-                      className="text-xl md:text-2xl text-foreground leading-relaxed font-light"
-                    >
-                      At {SITE_NAME}, we envision a world where every service provider has the tools and platform to succeed in today's digital economy.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      className="text-lg md:text-xl text-muted-foreground leading-relaxed"
-                    >
-                      Our mission is to create a seamless, intuitive, and powerful application that connects providers with customers while streamlining operations and driving growth.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                      className="text-lg md:text-xl text-muted-foreground leading-relaxed"
-                    >
-                      We are committed to building a platform that is not just functional, but transformative—helping providers reach new heights in their business journey and creating lasting value for both service providers and customers.
-                    </motion.p>
-                  </div>
+      {/* 1. Hero Section */}
+      <section className="bg-[#fff6f0] pt-28 pb-32 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="lg:w-1/2">
+              <span className="text-[#ff5e14] font-bold tracking-wider text-sm md:text-base uppercase mb-4 block">ABOUT FIXORA</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                India's Trusted <br />
+                Home Service <br />
+                <span className="text-[#ff5e14]">Marketplace</span>
+              </h1>
+              <p className="text-gray-600 text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
+                We connect customers with verified and skilled service providers, ensuring quality, reliability, and convenience at your doorstep.
+              </p>
+              {/* <div className="flex flex-wrap items-center gap-4">
+                <Button
+                  as={Link}
+                  href="/services"
+                  className="bg-[#ff5e14] text-white px-8 py-6 rounded-full font-bold text-base hover:bg-[#e04f0d] transition-colors shadow-lg shadow-[#ff5e14]/30"
+                  endContent={<ArrowRight className="w-5 h-5" />}
+                >
+                  Book a Service
+                </Button>
+                <Button
+                  as={Link}
+                  href="/provider"
+                  variant="bordered"
+                  className="bg-white text-gray-900 border-2 border-gray-200 px-8 py-6 rounded-full font-bold text-base hover:border-[#ff5e14] hover:text-[#ff5e14] transition-all"
+                  endContent={<ArrowRight className="w-5 h-5 text-gray-400" />}
+                >
+                  Become a Provider
+                </Button>
+              </div> */}
+            </div>
+
+            {/* Image Placeholder */}
+            <div className="lg:w-1/2 relative w-full aspect-square md:aspect-video lg:aspect-square flex justify-end">
+              <div className="w-full h-full bg-[#ffddcc]/50 rounded-3xl border-4 border-dashed border-[#ff5e14]/30 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#ff5e14]/10 to-transparent"></div>
+                <div className="z-10 bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-[#ff5e14]/20 shadow-xl">
+                  <p className="text-[#ff5e14] font-bold text-xl mb-2">Image Placeholder</p>
+                  <p className="text-gray-600 text-sm">Add hero illustration/image here</p>
                 </div>
               </div>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-              {visionPoints.map((point, index) => {
-                const Icon = point.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                    className="text-center"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                      className="inline-block mb-6"
-                    >
-                      <div className="w-16 h-16 rounded-2xl bg-[#122E46] flex items-center justify-center shadow-lg shadow-primary/30">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                    </motion.div>
-                    <h3 className="text-lg md:text-xl font-bold mb-3 text-primary group-hover:text-primary/80 transition-colors">
-                      {point.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {point.description}
-                    </p>
-                  </motion.div>
-                );
-              })}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-gradient-to-br from-background via-card/20 to-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center mb-12"
-            >
-              <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-                className="inline-block mb-6"
-              >
-                <div className="w-20 h-20 rounded-2xl bg-[#122E46] flex items-center justify-center shadow-2xl shadow-primary/40">
-                  <Rocket className="w-10 h-10 text-white" />
+      {/* 2. Stats Section (Floating over background transition) */}
+      <section className="relative z-20 -mt-16 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {stats.map((stat, i) => (
+            <div key={i} className="bg-white rounded-2xl p-6 shadow-xl shadow-gray-100/50 border border-gray-100 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-14 h-14 rounded-full bg-[#fff0e6] flex items-center justify-center flex-shrink-0">
+                <stat.icon className="w-7 h-7 text-[#ff5e14]" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-black text-gray-900">{stat.title}</h3>
+                <p className="text-sm font-medium text-gray-500">{stat.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Mission & Vision */}
+      <section className="py-24 bg-white container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+
+          {/* Image Placeholder */}
+          <div className="lg:w-1/2 w-full aspect-square md:aspect-[4/3] rounded-3xl bg-gray-50 border-4 border-dashed border-gray-200 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
+            <div className="z-10 bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 shadow-lg">
+              <p className="text-gray-900 font-bold text-xl mb-2">Image Placeholder</p>
+              <p className="text-gray-500 text-sm">Add phone mockup/illustration here</p>
+            </div>
+          </div>
+
+          <div className="lg:w-1/2">
+            <span className="text-[#ff5e14] font-bold tracking-wider text-sm uppercase mb-4 block">OUR MISSION & VISION</span>
+            <div className="space-y-10 mt-8">
+
+              <div className="flex gap-6">
+                <div className="w-16 h-16 rounded-full bg-white border border-[#ffddcc] shadow-sm flex items-center justify-center flex-shrink-0">
+                  <Target className="w-8 h-8 text-[#ff5e14]" />
                 </div>
-              </motion.div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-                Our Story
-              </h2>
-              <div className="w-40 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-6"></div>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                The journey of {SITE_NAME} began with a simple yet powerful vision: to bridge the gap between service providers and customers, making service booking and management effortless and efficient.
-              </p>
-            </motion.div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Our Mission</h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    To simplify home services by creating a trusted platform where customers can easily find verified professionals and get things done with ease.
+                  </p>
+                </div>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-              {storyTimeline.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.15, type: "spring" }}
-                  className="relative group"
-                >
-                  <div className="relative h-full bg-gradient-to-br from-card to-background rounded-2xl p-8 md:p-10 border-2 border-primary/20 hover:border-primary transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2 group">
-                    {/* Year Badge - Top Right */}
-                    <div className="absolute top-6 right-6 w-16 h-16 rounded-xl bg-[#122E46] flex items-center justify-center shadow-lg z-10 group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-sm md:text-base text-center leading-tight">{item.year}</span>
-                    </div>
+              <div className="flex gap-6">
+                <div className="w-16 h-16 rounded-full bg-white border border-[#ffddcc] shadow-sm flex items-center justify-center flex-shrink-0">
+                  <Eye className="w-8 h-8 text-[#ff5e14]" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Our Vision</h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    To become India's most reliable and innovative home service ecosystem, empowering communities and transforming everyday living.
+                  </p>
+                </div>
+              </div>
 
-                    {/* Status Badge - Top Left */}
-                    <div className="mb-6 pr-20">
-                      <span className="inline-block text-xs font-bold text-primary uppercase tracking-widest">
-                        {index === 0 && "Started"}
-                        {index === 1 && "Building"}
-                        {index === 2 && "Launched"}
-                        {index === 3 && "Growing"}
-                      </span>
-                    </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                    {/* Content */}
-                    <div>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors leading-tight">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
+      {/* 4. Why Choose Fixora? */}
+      <section className="py-24 bg-gray-50/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Why Choose Fixora?</h2>
+          </div>
 
-                    {/* Decorative Line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {whyChooseUs.map((item, i) => (
+              <div key={i} className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all text-center">
+                <div className="w-16 h-16 rounded-full bg-[#fff0e6] flex items-center justify-center mx-auto mb-6">
+                  <item.icon className="w-8 h-8 text-[#ff5e14]" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Our Journey */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">Our Journey</h2>
+            <div className="w-16 h-1 bg-[#ff5e14] mx-auto rounded-full mt-4"></div>
+          </div>
+
+          <div className="relative max-w-5xl mx-auto">
+            {/* Dashed line connecting timeline */}
+            <div className="absolute top-[45px] left-[10%] right-[10%] h-0.5 border-t-2 border-dashed border-[#ffddcc] hidden md:block"></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6 relative z-10">
+              {journey.map((step, i) => (
+                <div key={i} className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 rounded-full bg-[#ff5e14] text-white flex items-center justify-center shadow-xl shadow-[#ff5e14]/20 mb-6 relative">
+                    <step.icon className="w-10 h-10" />
+                    {/* Small dot on the dashed line for mobile */}
+                    <div className="absolute -top-6 w-3 h-3 rounded-full bg-[#ff5e14] md:hidden"></div>
                   </div>
-                </motion.div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">
+                    <span className="text-[#ff5e14] mr-1">{step.year.substring(0, 2)}</span>
+                    <span className="text-[#ff5e14]">{step.year.substring(2)}</span>
+                  </h4>
+                  <h5 className="font-bold text-gray-900 mb-3 text-lg">{step.title}</h5>
+                  <p className="text-gray-500 text-sm leading-relaxed px-2">
+                    {step.desc}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-background">
+      {/* 6. Meet The Leadership */}
+      <section className="py-24 bg-gray-50/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-                Our Team
-              </h2>
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-6"></div>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Meet the passionate team behind {SITE_NAME} - dedicated to transforming the service industry
-              </p>
-            </motion.div>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">Meet The Leadership</h2>
+            <div className="w-16 h-1 bg-[#ff5e14] mx-auto rounded-full mt-4"></div>
+          </div>
 
-            {/* Founders Section */}
-            <div className="mb-32">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="text-center mb-16"
-              >
-                <div className="inline-flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#122E46] flex items-center justify-center">
-                    <Award className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-                    Founders
-                  </h3>
-                </div>
-                <p className="text-lg text-muted-foreground">The visionaries who started it all</p>
-              </motion.div>
-              <div className="space-y-16 max-w-6xl mx-auto">
-                {teamMembers.founders.map((member, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center md:items-start gap-8 md:gap-12 relative`}
-                  >
-                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent hidden md:block"></div>
-                    <motion.div
-                      whileHover={{ scale: 1.05, rotate: 2 }}
-                      transition={{ duration: 0.3 }}
-                      className="relative flex-shrink-0"
-                    >
-                      <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-[#122E46] flex items-center justify-center shadow-2xl">
-                        <Users className="w-20 h-20 md:w-24 md:h-24 text-white" />
-                      </div>
-                      <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full bg-[#122E46] flex items-center justify-center shadow-xl">
-                        <Heart className="w-6 h-6 text-white" />
-                      </div>
-                    </motion.div>
-                    <div className={`flex-1 ${index % 2 === 0 ? 'text-center md:text-left' : 'text-center md:text-right'}`}>
-                      <div className="inline-block mb-4">
-                        <span className="text-sm font-semibold text-primary uppercase tracking-wider">Founder</span>
-                      </div>
-                      <h4 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-primary leading-tight group-hover:text-primary/80 transition-colors">
-                        {member.name}
-                      </h4>
-                      <p className="text-xl md:text-2xl text-primary font-semibold mb-6">{member.role}</p>
-                      <p className="text-lg text-muted-foreground leading-relaxed mb-6 max-w-2xl mx-auto md:mx-0">
-                        {member.bio}
-                      </p>
-                      <div className={`flex gap-4 justify-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
-                        <a
-                          href={member.linkedin}
-                          className="w-12 h-12 rounded-full bg-background border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group"
-                          aria-label="LinkedIn"
-                        >
-                          <Linkedin className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors" />
-                        </a>
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="w-12 h-12 rounded-full bg-background border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group"
-                          aria-label="Email"
-                        >
-                          <Mail className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors" />
-                        </a>
-                        <a
-                          href={member.github}
-                          className="w-12 h-12 rounded-full bg-background border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group"
-                          aria-label="GitHub"
-                        >
-                          <Github className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors" />
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {leadership.map((leader, i) => (
+              <div key={i} className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm text-center hover:-translate-y-1 transition-transform duration-300">
 
-            {/* Co-Founders Section */}
-            <div className="mb-20 relative">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="text-center mb-16 mt-16"
-              >
-                <div className="inline-flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#122E46] flex items-center justify-center">
-                    <Briefcase className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-                    Co-Founders
-                  </h3>
+                {/* Image Placeholder */}
+                <div className="w-32 h-32 rounded-full mx-auto bg-gray-100 border-4 border-white shadow-md mb-6 relative overflow-hidden flex items-center justify-center">
+                  <UserPlaceholder />
                 </div>
-                <p className="text-lg text-muted-foreground">The strategic minds driving growth</p>
-              </motion.div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
-                {teamMembers.coFounders.map((member, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.15 }}
-                    className="text-center"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.3 }}
-                      className="relative inline-block mb-8"
-                    >
-                      <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-[#122E46] flex items-center justify-center shadow-xl">
-                        <Briefcase className="w-16 h-16 md:w-18 md:h-18 text-white" />
-                      </div>
-                    </motion.div>
-                    <div className="inline-block mb-3">
-                      <span className="text-xs font-semibold text-primary uppercase tracking-wider">Co-Founder</span>
-                    </div>
-                    <h4 className="text-2xl md:text-3xl font-bold mb-3 text-primary">{member.name}</h4>
-                    <p className="text-lg text-primary font-semibold mb-5">{member.role}</p>
-                    <p className="text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
-                    <div className="flex gap-3 justify-center">
-                      <a
-                        href={member.linkedin}
-                        className="w-11 h-11 rounded-full bg-background border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group"
-                        aria-label="LinkedIn"
-                      >
-                        <Linkedin className="w-5 h-5 text-primary group-hover:text-[hsl(var(--color-secondary))] transition-colors" />
-                      </a>
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="w-11 h-11 rounded-full bg-background border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group"
-                        aria-label="Email"
-                      >
-                        <Mail className="w-5 h-5 text-primary group-hover:text-[hsl(var(--color-secondary))] transition-colors" />
-                      </a>
-                      <a
-                        href={member.github}
-                        className="w-11 h-11 rounded-full bg-background border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group"
-                        aria-label="GitHub"
-                      >
-                        <Github className="w-5 h-5 text-primary group-hover:text-[hsl(var(--color-secondary))] transition-colors" />
-                      </a>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
 
-            {/* Developers Section */}
-            <div className="relative">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="text-center mb-16 mt-16"
-              >
-                <div className="inline-flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#122E46] flex items-center justify-center">
-                    <Code className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-                    Development Team
-                  </h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">{leader.name}</h3>
+                <p className="text-[#ff5e14] font-medium text-sm mb-4">{leader.title}</p>
+                <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                  {leader.desc}
+                </p>
+
+                <div className="flex items-center justify-center gap-3">
+                  <a href="#" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-gray-600">
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-gray-600">
+                    <Mail className="w-4 h-4" />
+                  </a>
                 </div>
-                <p className="text-lg text-muted-foreground">The talented developers building the future</p>
-              </motion.div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                {teamMembers.developers.map((member, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex items-start gap-4 group"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                      className="flex-shrink-0"
-                    >
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#122E46] flex items-center justify-center shadow-lg group-hover:shadow-primary/30 transition-shadow">
-                        <Code className="w-8 h-8 md:w-10 md:h-10 text-white" />
-                      </div>
-                    </motion.div>
-                    <div className="flex-1 pt-2">
-                      <div className="inline-block mb-2">
-                        <span className="text-xs font-semibold text-primary/80 uppercase tracking-wider">Developer</span>
-                      </div>
-                      <h4 className="text-xl md:text-2xl font-bold mb-2 text-primary group-hover:text-primary/80 transition-colors">{member.name}</h4>
-                      <p className="text-base md:text-lg text-primary font-semibold mb-3">{member.role}</p>
-                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
-                      <div className="flex gap-3">
-                        <a
-                          href={member.linkedin}
-                          className="w-9 h-9 rounded-full bg-background border border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group"
-                          aria-label="LinkedIn"
-                        >
-                          <Linkedin className="w-4 h-4 text-primary group-hover:text-primary/80 transition-colors" />
-                        </a>
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="w-9 h-9 rounded-full bg-background border border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group"
-                          aria-label="Email"
-                        >
-                          <Mail className="w-4 h-4 text-primary group-hover:text-primary/80 transition-colors" />
-                        </a>
-                        <a
-                          href={member.github}
-                          className="w-9 h-9 rounded-full bg-background border border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group"
-                          aria-label="GitHub"
-                        >
-                          <Github className="w-4 h-4 text-primary group-hover:text-primary/80 transition-colors" />
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* 7. CTA Section */}
+      <section className="py-12 container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="bg-[#111] rounded-3xl overflow-hidden relative">
+          <div className="flex flex-col lg:flex-row items-center justify-between p-10 md:p-16 gap-10">
+
+            <div className="lg:w-1/2 relative z-10 text-center lg:text-left">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                Ready to experience <br />
+                better home services?
+              </h2>
+              <p className="text-gray-400 text-lg mb-8 max-w-md mx-auto lg:mx-0">
+                Download the Fixora app and book trusted professionals in just a few taps.
+              </p>
+              <Button
+                as={Link}
+                href="/download"
+                className="bg-[#ff5e14] text-white px-8 py-6 rounded-full font-bold text-base hover:bg-[#e04f0d] transition-colors"
+                startContent={<Download className="w-5 h-5" />}
+              >
+                Download App
+              </Button>
+            </div>
+
+            <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-end gap-6 h-64 lg:h-80 items-center">
+              {/* Phone Mockup Placeholder */}
+              <div className="w-48 h-full bg-white/10 rounded-3xl border-4 border-dashed border-white/20 flex items-center justify-center text-center p-4">
+                <p className="text-white/50 text-sm font-medium">App Mockup</p>
+              </div>
+
+              {/* Stores Placeholder */}
+              <div className="flex flex-col gap-4">
+                <AppleStoreButton />
+                <GooglePlayButton />
+                <div className="w-36 h-36 mt-2 bg-white/10 rounded-xl border-4 border-dashed border-white/20 flex items-center justify-center">
+                  <span className="text-white/50 text-xs font-bold">QR Code</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
+
+// Simple placeholder SVG for user avatars
+const UserPlaceholder = () => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-gray-300">
+    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 6C13.66 6 15 7.34 15 9C15 10.66 13.66 12 12 12C10.34 12 9 10.66 9 9C9 7.34 10.34 6 12 6ZM12 20.2C9.5 20.2 7.29 18.92 6 16.98C6.03 14.99 10 13.9 12 13.9C13.99 13.9 17.97 14.99 18 16.98C16.71 18.92 14.5 20.2 12 20.2Z" fill="currentColor" />
+  </svg>
+);

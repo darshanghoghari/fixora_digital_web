@@ -70,7 +70,7 @@ export default function InfiniteScrollServices() {
     <section className="py-16 md:py-24 bg-background overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent opacity-50"></div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative w-full">
         <div
           className="overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}

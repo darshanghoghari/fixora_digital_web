@@ -12,10 +12,10 @@ interface LogoProps {
 
 export default function Logo({ className, size = "md" }: LogoProps) {
   const sizeClasses = {
-    sm: "w-12 h-12",
-    md: "w-16 h-16",
-    lg: "w-24 h-24",
-    xl: "w-32 h-32",
+    sm: "w-10 h-10 md:w-12 md:h-12",
+    md: "w-12 h-12 md:w-16 md:h-16",
+    lg: "w-14 h-14 md:w-20 md:h-20 lg:w-24 lg:h-24",
+    xl: "w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32",
   };
 
   return (
@@ -29,9 +29,9 @@ export default function Logo({ className, size = "md" }: LogoProps) {
         <Image
           src="/fixora_app_icon.png"
           alt="FIXORA Logo"
-          width={size === "sm" ? 48 : size === "md" ? 64 : size === "lg" ? 96 : 128}
-          height={size === "sm" ? 48 : size === "md" ? 64 : size === "lg" ? 96 : 128}
-          className="w-full h-full object-contain"
+          fill
+          sizes="(max-width: 768px) 80px, 128px"
+          className="object-contain"
           priority
           unoptimized
         />

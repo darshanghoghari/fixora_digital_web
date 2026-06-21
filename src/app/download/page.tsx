@@ -1,192 +1,206 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Smartphone, Check } from "lucide-react";
+import { CheckCircle2, Smartphone, Download, Gauge, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@heroui/react";
-import { SITE_NAME } from "@/constants/navigation";
-import contentData from "@/data/content.json";
+import { AppleStoreButton, GooglePlayButton } from "@/components/StoreButtons";
 
-export default function Download() {
+export default function DownloadPage() {
+  const features = [
+    "Manage bookings on the go",
+    "Real-time notifications",
+    "Offline mode support",
+    "Secure payment processing",
+    "Customer communication",
+  ];
+
   return (
-    <div className="min-h-screen">
-      <section className="py-24 bg-gradient-to-br from-accent/20 to-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              {contentData.download.title}
-            </h1>
-            <p className="text-xl text-muted-foreground mb-4">
-              {contentData.download.subtitle}
-            </p>
-            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-              {contentData.download.description}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center md:text-left"
-              >
-                <h2 className="text-3xl font-bold mb-6 text-foreground">
-                  Available on All Platforms
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  {contentData.download.description}
-                </p>
-                <div className="space-y-4">
-                  <Button
-                    size="lg"
-                    variant="bordered"
-                    radius="full"
-                    className="w-full md:w-auto !border-border border-2 text-foreground bg-card hover:!bg-primary hover:!text-white transition-all duration-300"
-                    isDisabled
-                  >
-                    <div className="inline-flex items-center">
-                      <svg
-                        className="w-6 h-6 mr-3"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.96-3.24-1.44-2.24-1.08-3.8-2.47-4.15-4.38-.11-.6-.11-1.19 0-1.79.37-2.01 1.93-3.39 4.15-4.38 1.16-.48 2.15-.94 3.24-1.44 1.03-.47 2.1-.55 3.08.4.43.42.74.93.97 1.5.24.58.35 1.21.35 1.85v6.64c0 .64-.11 1.27-.35 1.85-.23.57-.54 1.08-.97 1.5zM12.03 3.5c-2.46 0-4.5 2.04-4.5 4.5s2.04 4.5 4.5 4.5 4.5-2.04 4.5-4.5-2.04-4.5-4.5-4.5z" />
-                      </svg>
-                      <span className="flex items-center gap-2">
-                        Download for iOS
-                        <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">
-                          Coming Soon
-                        </span>
-                      </span>
-                    </div>
-                  </Button>
-                  <Button
-                    as={Link}
-                    href="#"
-                    size="lg"
-                    color="primary"
-                    radius="full"
-                    className="w-full md:w-auto"
-                  >
-                    <div className="inline-flex items-center">
-                      <svg
-                        className="w-6 h-6 mr-3"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm-.96-4.19L6.05 2.66l10.76 6.27-2.27 2.27zM6.05 2.66L3.84 4.87l8.49 8.49-2.27 2.27L6.05 2.66z" />
-                      </svg>
-                      Download for Android
-                    </div>
-                  </Button>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center"
-              >
-                <div className="bg-card rounded-2xl p-8 lg:p-10 shadow-xl border border-border">
-                  <div className="text-6xl mb-6">📱</div>
-                  <h3 className="text-2xl font-semibold mb-6 text-foreground">
-                    Mobile App Features
-                  </h3>
-                  <ul className="space-y-4 text-left">
-                    {contentData.download.features.map((feature, index) => (
-                      <motion.li
-                        key={feature}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.4,
-                          delay: index * 0.1,
-                          ease: [0.16, 1, 0.3, 1],
-                        }}
-                        className="flex items-center text-muted-foreground"
-                      >
-                        <Check className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Why Download {SITE_NAME}?
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Experience the power of managing your service provider business
-                from anywhere with our feature-rich mobile application.
+    <div className="bg-white text-gray-900 min-h-screen font-sans">
+      
+      {/* 1. Hero Section */}
+      <section className="bg-[#fff6f0] pt-28 pb-32 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="lg:w-1/2">
+              <span className="text-[#ff5e14] font-bold tracking-wider text-sm md:text-base uppercase mb-4 block">DOWNLOAD FIXORA</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                Manage Your Business <br />
+                On The <span className="text-[#ff5e14]">Go</span>
+              </h1>
+              <p className="text-gray-600 text-lg md:text-xl max-w-lg mb-10 leading-relaxed">
+                Download the Fixora app on your preferred platform and take your service business to the next level.
               </p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-card p-6 rounded-xl border border-border"
-              >
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  Real-Time Business Management
-                </h3>
-                <p className="text-muted-foreground">
-                  Stay connected with your business 24/7. Receive instant
-                  notifications for new bookings, manage your schedule, and
-                  track earnings in real-time from your mobile device.
-                </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-card p-6 rounded-xl border border-border"
-              >
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  Secure & Reliable
-                </h3>
-                <p className="text-muted-foreground">
-                  Your data is protected with enterprise-grade security. Process
-                  payments securely, communicate with customers safely, and
-                  access your account with confidence.
-                </p>
-              </motion.div>
+              
+              <div className="flex flex-wrap items-center gap-4">
+                <AppleStoreButton className="!px-5 !py-3 !w-44 h-14" />
+                <GooglePlayButton className="!px-5 !py-3 !w-44 h-14" />
+              </div>
+            </div>
+            
+            {/* Image Placeholder */}
+            <div className="lg:w-1/2 relative w-full aspect-square md:aspect-video lg:aspect-[4/3] flex justify-end">
+              <div className="w-full h-full bg-[#ffddcc]/50 rounded-3xl border-4 border-dashed border-[#ff5e14]/30 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#ff5e14]/10 to-transparent"></div>
+                <div className="z-10 bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-[#ff5e14]/20 shadow-xl">
+                  <p className="text-[#ff5e14] font-bold text-xl mb-2">Image Placeholder</p>
+                  <p className="text-gray-600 text-sm">Add double phone mockup here</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* 2. Available On All Platforms */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 max-w-6xl mx-auto">
+            
+            <div className="lg:w-1/2">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 rounded bg-[#fff0e6] flex items-center justify-center">
+                  <Smartphone className="w-4 h-4 text-[#ff5e14]" />
+                </div>
+                <span className="text-[#ff5e14] font-bold tracking-wider text-sm uppercase">AVAILABLE ON ALL PLATFORMS</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                Get Fixora On Your <br />
+                Preferred Platform
+              </h2>
+              <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-md">
+                Download our app and start managing your provider business from anywhere, anytime.
+              </p>
+              
+              <div className="space-y-4 max-w-sm">
+                {/* Download for iOS */}
+                <div className="w-full bg-[#ff5e14] text-white rounded-xl p-4 flex items-center justify-between font-bold cursor-not-allowed opacity-90">
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 border-2 border-white/30 rounded-full flex items-center justify-center text-xs">
+                      iOS
+                    </div>
+                    <span>Download for iOS</span>
+                  </div>
+                  <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
+                    Coming Soon
+                  </span>
+                </div>
+
+                {/* Download for Android */}
+                <div className="w-full bg-white border-2 border-gray-200 text-gray-900 rounded-xl p-4 flex items-center gap-3 font-bold hover:border-[#ff5e14] hover:text-[#ff5e14] transition-colors cursor-pointer">
+                  <div className="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center text-xs">
+                    GP
+                  </div>
+                  <span>Download for Android</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Powerful Mobile Features Card */}
+            <div className="lg:w-1/2 w-full">
+              <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100 shadow-xl shadow-gray-100/50">
+                <div className="w-16 h-16 rounded-full bg-[#fff0e6] border border-[#ffddcc] flex items-center justify-center mb-8">
+                  <Smartphone className="w-8 h-8 text-[#ff5e14]" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">Powerful Mobile Features</h3>
+                <ul className="space-y-5">
+                  {features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-4">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white border border-[#ffddcc] shadow-sm flex items-center justify-center">
+                        <CheckCircle2 className="w-4 h-4 text-[#ff5e14]" />
+                      </div>
+                      <span className="text-gray-700 font-medium">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Why Download Fixora? */}
+      <section className="py-24 bg-gray-50/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-[#ff5e14] font-bold tracking-wider text-sm uppercase mb-3 block">WHY DOWNLOAD FIXORA?</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+              Built For Service Providers Like You
+            </h2>
+            <div className="w-16 h-1 bg-[#ff5e14] mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Experience the power of managing your service provider business from anywhere with our feature-rich mobile application.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Real-Time Management */}
+            <div className="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div className="w-20 h-20 rounded-full bg-[#fff0e6] flex items-center justify-center flex-shrink-0">
+                <Gauge className="w-10 h-10 text-[#ff5e14]" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Real-Time Business Management</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Stay connected with your business 24/7. Receive instant notifications for new bookings, manage your schedule, and track earnings in real-time from your mobile device.
+                </p>
+              </div>
+            </div>
+
+            {/* Secure & Reliable */}
+            <div className="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div className="w-20 h-20 rounded-full bg-[#fff0e6] flex items-center justify-center flex-shrink-0">
+                <ShieldCheck className="w-10 h-10 text-[#ff5e14]" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Secure & Reliable</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Your data is protected with enterprise-grade security. Process payments securely, communicate with customers safely, and access your account with confidence.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. CTA Section */}
+      <section className="py-12 container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="bg-[#111] rounded-3xl overflow-hidden relative">
+          <div className="flex flex-col lg:flex-row items-center justify-between p-10 md:p-16 gap-10">
+            
+            <div className="lg:w-1/2 relative z-10 text-center lg:text-left">
+              <span className="text-[#ff5e14] font-bold tracking-wider text-sm uppercase mb-3 block">GET THE APP</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                Ready to Grow Your Business?
+              </h2>
+              <p className="text-gray-400 text-lg mb-0 max-w-md mx-auto lg:mx-0">
+                Download the Fixora app now and take control of your service business wherever you are.
+              </p>
+            </div>
+
+            <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-end gap-6 h-auto lg:h-32 items-center flex-wrap lg:flex-nowrap">
+              {/* Stores Placeholder */}
+              <div className="flex flex-col gap-4">
+                <AppleStoreButton />
+                <GooglePlayButton />
+              </div>
+
+              {/* Decorative dotted separator hidden on small screens */}
+              <div className="hidden lg:block w-px h-full border-l border-dashed border-white/20 mx-2"></div>
+
+              {/* QR Code Placeholder */}
+              <div className="w-32 h-32 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-2">
+                <div className="w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg">
+                  <span className="text-gray-400 text-xs font-bold">QR Code</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

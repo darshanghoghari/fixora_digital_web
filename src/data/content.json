@@ -43,40 +43,94 @@
   },
   "navigation": {
     "links": [
-      { "href": "/", "label": "Home" },
-      { "href": "/about", "label": "About" },
-      { "href": "/services", "label": "Services" },
-      { "href": "/how-it-works", "label": "How It Works" },
-      { "href": "/features", "label": "Features" },
-      { "href": "/download", "label": "Download" },
-      { "href": "/faq", "label": "FAQ" },
-      { "href": "/feedback", "label": "Feedback" }
+      {
+        "href": "/",
+        "label": "Home"
+      },
+      {
+        "href": "/about",
+        "label": "About"
+      },
+      {
+        "href": "/services",
+        "label": "Services"
+      },
+      {
+        "href": "/how-it-works",
+        "label": "How It Works"
+      },
+      {
+        "href": "/features",
+        "label": "Features"
+      },
+      {
+        "href": "/download",
+        "label": "Download"
+      },
+      {
+        "href": "/faq",
+        "label": "FAQ"
+      },
+      {
+        "href": "/feedback",
+        "label": "Feedback"
+      }
     ],
     "footer": {
       "product": [
-        { "href": "/features", "label": "Features" },
-        { "href": "/download", "label": "Download" }
+        {
+          "href": "/features",
+          "label": "Features"
+        },
+        {
+          "href": "/download",
+          "label": "Download"
+        }
       ],
       "company": [
-        { "href": "/about", "label": "About" },
-        { "href": "/feedback", "label": "Feedback" },
-        { "href": "/faq", "label": "FAQ" }
+        {
+          "href": "/about",
+          "label": "About"
+        },
+        {
+          "href": "/feedback",
+          "label": "Feedback"
+        },
+        {
+          "href": "/faq",
+          "label": "FAQ"
+        }
       ],
       "resources": [
-        { "href": "/services", "label": "Services" },
-        { "href": "/how-it-works", "label": "How It Works" },
-        { "href": "/privacy", "label": "Privacy Policy" }
+        {
+          "href": "/services",
+          "label": "Services"
+        },
+        {
+          "href": "/how-it-works",
+          "label": "How It Works"
+        },
+        {
+          "href": "/privacy",
+          "label": "Privacy Policy"
+        }
       ]
     }
   },
   "home": {
     "hero": {
-      "title": "Grow Your Business with",
-      "titleHighlight": "FIXORA",
-      "description": "Connect with customers and grow your business with our service provider platform.",
+      "title": "We Drive Growth\nFor Your",
+      "titleHighlight": "Business",
+      "description": "Result-driven marketing strategies that increase your visibility, generate quality leads and maximize ROI.",
       "cta": {
-        "primary": { "text": "Get Started", "href": "/download" },
-        "secondary": { "text": "Learn More", "href": "/how-it-works" }
+        "primary": {
+          "text": "Get Started",
+          "href": "/download"
+        },
+        "secondary": {
+          "text": "Learn More",
+          "href": "/how-it-works"
+        }
       }
     },
     "features": [
@@ -99,7 +153,10 @@
     "cta": {
       "title": "Ready to Get Started?",
       "description": "Join thousands of providers already using our platform to grow their business.",
-      "button": { "text": "Download Now", "href": "/download" }
+      "button": {
+        "text": "Download Now",
+        "href": "/download"
+      }
     }
   },
   "about": {
@@ -274,7 +331,10 @@
     "cta": {
       "title": "Ready to Get Started?",
       "description": "Join thousands of providers already using our platform",
-      "button": { "text": "Download Now", "href": "/download" }
+      "button": {
+        "text": "Download Now",
+        "href": "/download"
+      }
     }
   },
   "download": {
@@ -347,20 +407,34 @@
     "cta": {
       "title": "Still Have Questions?",
       "description": "Can't find the answer you're looking for? Contact our support team.",
-      "button": { "text": "Contact Support", "href": "/feedback" }
+      "button": {
+        "text": "Contact Support",
+        "href": "/feedback"
+      }
     }
   },
   "feedback": {
     "title": "Get In Touch",
     "subtitle": "Have questions? We'd love to hear from you",
     "form": {
-      "name": { "label": "Name", "placeholder": "Your name" },
-      "email": { "label": "Email", "placeholder": "your.email@example.com" },
-      "subject": { "label": "Subject", "placeholder": "Subject" },
-      "message": { "label": "Message", "placeholder": "Your message" },
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your.email@example.com"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Subject"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message"
+      },
       "submit": "Send Message",
       "submitting": "Sending..."
     }
   }
 }
-
