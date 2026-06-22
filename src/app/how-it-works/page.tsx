@@ -7,6 +7,7 @@ import {
   CheckCircle2, PlusCircle, User, BarChart2
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@heroui/react";
 import { AppleStoreButton, GooglePlayButton } from "@/components/StoreButtons";
 
@@ -108,16 +109,29 @@ export default function HowItWorksPage() {
               </p>
             </div>
             
-            {/* Image Placeholder */}
-            <div className="lg:w-1/2 relative w-full aspect-square md:aspect-video lg:aspect-square flex justify-center lg:justify-end items-center lg:pr-8 xl:pr-12">
+            {/* Hero Image */}
+            <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-end items-center lg:pr-8 xl:pr-12 mt-10 lg:mt-0">
               
               {/* Background Blob */}
-              <div className="absolute right-0 w-[80%] h-[80%] bg-[#ffddcc]/50 rounded-full blur-3xl z-0"></div>
+              <div className="absolute right-0 w-[80%] h-[80%] bg-[#ffddcc]/40 rounded-full blur-3xl z-0"></div>
 
-              <div className="relative z-10 w-full max-w-md h-[400px] md:h-[500px] bg-white/50 backdrop-blur-sm rounded-3xl border-4 border-dashed border-[#ff5e14]/30 flex flex-col items-center justify-center text-center p-8 overflow-hidden shadow-xl">
-                <p className="text-[#ff5e14] font-bold text-xl mb-2">Image Placeholder</p>
-                <p className="text-gray-600 text-sm">Add your phone & role card image here</p>
-              </div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="relative z-10 w-full max-w-lg rounded-[2.5rem] overflow-hidden shadow-2xl shadow-[#ff5e14]/20"
+              >
+                <div className="scale-[1.04] origin-center w-full h-full">
+                  <Image
+                    src="/images/banner/how-it-work-hero-banner.png"
+                    alt="Manage Your Service Business"
+                    width={800}
+                    height={800}
+                    className="w-full h-auto object-contain mix-blend-multiply"
+                    priority
+                  />
+                </div>
+              </motion.div>
 
             </div>
           </div>
@@ -230,30 +244,24 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* 4. CTA Section (Orange Background) */}
+      {/* 4. CTA Banner Section */}
       <section className="py-12 container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="bg-gradient-to-r from-[#ff5e14] to-[#f04f05] rounded-3xl overflow-hidden relative shadow-2xl shadow-[#ff5e14]/20">
-          {/* Subtle background pattern/texture placeholder */}
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent bg-[length:20px_20px]"></div>
-          
-          <div className="flex flex-col lg:flex-row items-center justify-between p-10 md:p-16 gap-10 relative z-10">
-            
-            <div className="lg:w-3/5 text-center lg:text-left">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                Ready to Grow Your Service Business?
-              </h2>
-              <p className="text-white/90 text-lg mb-0 max-w-lg mx-auto lg:mx-0">
-                Join thousands of service providers who are already growing with FIXORA.
-              </p>
-            </div>
-
-            <div className="lg:w-2/5 flex justify-center lg:justify-end gap-4 flex-wrap sm:flex-nowrap">
-              <AppleStoreButton className="!px-6 !py-3 !w-44 h-14" />
-              <GooglePlayButton className="!px-6 !py-3 !w-44 h-14" />
-            </div>
-
-          </div>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="w-full flex justify-center"
+        >
+          <Image
+            src="/images/banner/how-it-work-bottom-banner.png"
+            alt="Ready to Grow Your Service Business?"
+            width={1920}
+            height={600}
+            className="w-full h-auto rounded-3xl shadow-2xl shadow-[#ff5e14]/20 object-cover"
+            priority
+          />
+        </motion.div>
       </section>
 
     </div>

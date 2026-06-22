@@ -9,6 +9,7 @@ import {
   Linkedin, Mail, ArrowRight, Download
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { AppleStoreButton, GooglePlayButton } from "@/components/StoreButtons";
 export default function AboutPage() {
   const stats = [
@@ -97,7 +98,9 @@ export default function AboutPage() {
       {/* 1. Hero Section */}
       <section className="bg-[#fff6f0] pt-28 pb-32 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div className="flex flex-col-reverse lg:flex-row-reverse items-center justify-between gap-12 lg:gap-20">
+            
+            {/* Text Side (Right on Desktop) */}
             <div className="lg:w-1/2">
               <span className="text-[#ff5e14] font-bold tracking-wider text-sm md:text-base uppercase mb-4 block">ABOUT FIXORA</span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
@@ -108,36 +111,27 @@ export default function AboutPage() {
               <p className="text-gray-600 text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
                 We connect customers with verified and skilled service providers, ensuring quality, reliability, and convenience at your doorstep.
               </p>
-              {/* <div className="flex flex-wrap items-center gap-4">
-                <Button
-                  as={Link}
-                  href="/services"
-                  className="bg-[#ff5e14] text-white px-8 py-6 rounded-full font-bold text-base hover:bg-[#e04f0d] transition-colors shadow-lg shadow-[#ff5e14]/30"
-                  endContent={<ArrowRight className="w-5 h-5" />}
-                >
-                  Book a Service
-                </Button>
-                <Button
-                  as={Link}
-                  href="/provider"
-                  variant="bordered"
-                  className="bg-white text-gray-900 border-2 border-gray-200 px-8 py-6 rounded-full font-bold text-base hover:border-[#ff5e14] hover:text-[#ff5e14] transition-all"
-                  endContent={<ArrowRight className="w-5 h-5 text-gray-400" />}
-                >
-                  Become a Provider
-                </Button>
-              </div> */}
             </div>
 
-            {/* Image Placeholder */}
-            <div className="lg:w-1/2 relative w-full aspect-square md:aspect-video lg:aspect-square flex justify-end">
-              <div className="w-full h-full bg-[#ffddcc]/50 rounded-3xl border-4 border-dashed border-[#ff5e14]/30 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#ff5e14]/10 to-transparent"></div>
-                <div className="z-10 bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-[#ff5e14]/20 shadow-xl">
-                  <p className="text-[#ff5e14] font-bold text-xl mb-2">Image Placeholder</p>
-                  <p className="text-gray-600 text-sm">Add hero illustration/image here</p>
+            {/* Banner Image Side (Left on Desktop) */}
+            <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-start">
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="relative w-full rounded-[2.5rem] overflow-hidden shadow-2xl shadow-[#ff5e14]/10"
+              >
+                <div className="scale-[1.04] origin-center w-full h-full">
+                  <Image
+                    src="/images/banner/about-banner-image.png"
+                    alt="About Fixora Marketplace"
+                    width={800}
+                    height={800}
+                    className="w-full h-auto object-contain mix-blend-multiply"
+                    priority
+                  />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -164,12 +158,25 @@ export default function AboutPage() {
       <section className="py-24 bg-white container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
-          {/* Image Placeholder */}
-          <div className="lg:w-1/2 w-full aspect-square md:aspect-[4/3] rounded-3xl bg-gray-50 border-4 border-dashed border-gray-200 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
-            <div className="z-10 bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 shadow-lg">
-              <p className="text-gray-900 font-bold text-xl mb-2">Image Placeholder</p>
-              <p className="text-gray-500 text-sm">Add phone mockup/illustration here</p>
-            </div>
+          {/* Mission & Vision Image */}
+          <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-start">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative w-full rounded-[2.5rem] overflow-hidden shadow-xl shadow-gray-200"
+            >
+              <div className="scale-[1.04] origin-center w-full h-full">
+                <Image
+                  src="/images/banner/about-banner-2.png"
+                  alt="Our Mission and Vision"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-contain mix-blend-multiply"
+                />
+              </div>
+            </motion.div>
           </div>
 
           <div className="lg:w-1/2">
@@ -302,45 +309,22 @@ export default function AboutPage() {
 
       {/* 7. CTA Section */}
       <section className="py-12 container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="bg-[#111] rounded-3xl overflow-hidden relative">
-          <div className="flex flex-col lg:flex-row items-center justify-between p-10 md:p-16 gap-10">
-
-            <div className="lg:w-1/2 relative z-10 text-center lg:text-left">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                Ready to experience <br />
-                better home services?
-              </h2>
-              <p className="text-gray-400 text-lg mb-8 max-w-md mx-auto lg:mx-0">
-                Download the Fixora app and book trusted professionals in just a few taps.
-              </p>
-              <Button
-                as={Link}
-                href="/download"
-                className="bg-[#ff5e14] text-white px-8 py-6 rounded-full font-bold text-base hover:bg-[#e04f0d] transition-colors"
-                startContent={<Download className="w-5 h-5" />}
-              >
-                Download App
-              </Button>
-            </div>
-
-            <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-end gap-6 h-64 lg:h-80 items-center">
-              {/* Phone Mockup Placeholder */}
-              <div className="w-48 h-full bg-white/10 rounded-3xl border-4 border-dashed border-white/20 flex items-center justify-center text-center p-4">
-                <p className="text-white/50 text-sm font-medium">App Mockup</p>
-              </div>
-
-              {/* Stores Placeholder */}
-              <div className="flex flex-col gap-4">
-                <AppleStoreButton />
-                <GooglePlayButton />
-                <div className="w-36 h-36 mt-2 bg-white/10 rounded-xl border-4 border-dashed border-white/20 flex items-center justify-center">
-                  <span className="text-white/50 text-xs font-bold">QR Code</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="w-full flex justify-center"
+        >
+          <Image
+            src="/images/banner/about-banner-3.png"
+            alt="Ready to experience better home services?"
+            width={1920}
+            height={600}
+            className="w-full h-auto rounded-3xl shadow-2xl object-cover"
+            priority
+          />
+        </motion.div>
       </section>
 
     </div>

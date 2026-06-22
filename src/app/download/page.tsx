@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Smartphone, Download, Gauge, ShieldCheck } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@heroui/react";
 import { AppleStoreButton, GooglePlayButton } from "@/components/StoreButtons";
 
@@ -38,15 +39,25 @@ export default function DownloadPage() {
               </div>
             </div>
             
-            {/* Image Placeholder */}
-            <div className="lg:w-1/2 relative w-full aspect-square md:aspect-video lg:aspect-[4/3] flex justify-end">
-              <div className="w-full h-full bg-[#ffddcc]/50 rounded-3xl border-4 border-dashed border-[#ff5e14]/30 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#ff5e14]/10 to-transparent"></div>
-                <div className="z-10 bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-[#ff5e14]/20 shadow-xl">
-                  <p className="text-[#ff5e14] font-bold text-xl mb-2">Image Placeholder</p>
-                  <p className="text-gray-600 text-sm">Add double phone mockup here</p>
+            {/* Hero Image */}
+            <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-end items-center mt-10 lg:mt-0">
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="relative w-full max-w-lg rounded-[2.5rem] overflow-hidden shadow-2xl shadow-[#ff5e14]/20"
+              >
+                <div className="scale-[1.04] origin-center w-full h-full">
+                  <Image
+                    src="/images/banner/download-hero-banner.png"
+                    alt="Download Fixora App"
+                    width={800}
+                    height={800}
+                    className="w-full h-auto object-contain mix-blend-multiply"
+                    priority
+                  />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
