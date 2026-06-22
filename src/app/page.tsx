@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { 
   Users, CheckCircle2, MapPin, Star, Wrench, Zap, Wind, Droplets, Paintbrush, Hammer, MonitorSmartphone, Leaf,
-  ShieldCheck, Clock, Navigation, Headphones, IndianRupee, ChevronLeft, ChevronRight, Download, Shield, Lock
+  ShieldCheck, Clock, Navigation, Headphones, IndianRupee, ChevronLeft, ChevronRight, Download, Shield, Lock,
+  Search, CalendarDays, Award, User, Briefcase, ClipboardList, Bell, TrendingUp, UserPlus
 } from "lucide-react";
 import { Button } from "@heroui/react";
 import contentData from "@/data/content.json";
@@ -222,57 +224,94 @@ export default function Home() {
       </section>
 
       {/* How Fixora Works */}
-      <section className="py-24 bg-gray-50/50">
+      <section className="py-24 bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">How <span className="text-[#ff5e14]">Fixora</span> Works</h2>
-          <p className="text-gray-500 mb-16">Simple steps to get your work done or grow your business</p>
+          <p className="text-gray-500 mb-20">Simple steps to get your work done or grow your business</p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 max-w-7xl mx-auto">
+            
             {/* For Customers */}
-            <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm relative pt-12">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#ffddcc] text-[#ff5e14] font-bold text-xs uppercase tracking-wider px-6 py-2 rounded-full">
-                For Customers
+            <div className="bg-white rounded-[2rem] p-6 sm:p-10 border border-[#ffddcc] shadow-[0_8px_30px_rgb(255,94,20,0.06)] relative flex flex-col justify-start">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center gap-2 px-6 py-3 bg-[#ff5e14] text-white font-bold text-sm sm:text-base uppercase tracking-wider rounded-xl shadow-lg shadow-[#ff5e14]/20 z-20">
+                <Users className="w-5 h-5 fill-current" />
+                FOR CUSTOMERS
               </div>
-              <div className="flex justify-between relative mt-8">
-                <div className="absolute top-6 left-0 right-0 h-0.5 bg-[#ffddcc] -z-10 hidden sm:block"></div>
-                {[
-                  { num: "1", title: "Search", desc: "Find the service you need" },
-                  { num: "2", title: "Choose", desc: "Select a verified professional" },
-                  { num: "3", title: "Book", desc: "Pick a time that suits you" },
-                  { num: "4", title: "Get It Done", desc: "Relax and enjoy quality service" }
-                ].map((step, i) => (
-                  <div key={i} className="flex flex-col items-center flex-1 text-center bg-white px-2">
-                    <div className="w-12 h-12 rounded-full bg-[#ff5e14] text-white flex items-center justify-center font-bold text-lg mb-4 shadow-md shadow-[#ff5e14]/20">
-                      {step.num}
+              
+              <div className="relative mt-12 mb-4">
+                {/* Connecting Line (Horizontal) */}
+                <div className="absolute top-[28px] left-[12%] right-[12%] h-[2px] bg-transparent border-t-[2px] border-dashed border-[#ffddcc] z-0 hidden sm:block"></div>
+                
+                <div className="flex flex-col sm:flex-row justify-between gap-8 sm:gap-2 relative z-10">
+                  {[
+                    { num: "01", icon: Search, title: "Search", desc: "Find the service you need" },
+                    { num: "02", icon: ShieldCheck, title: "Choose", desc: "Select a verified professional" },
+                    { num: "03", icon: CalendarDays, title: "Book", desc: "Pick a time that suits you" },
+                    { num: "04", icon: Award, title: "Get It Done", desc: "Relax and enjoy quality service" }
+                  ].map((step, i) => (
+                    <div key={i} className="flex flex-col items-center flex-1 text-center group relative">
+                      {/* Vertical line for mobile connecting steps */}
+                      {i !== 3 && <div className="absolute top-[56px] bottom-[-48px] left-1/2 w-[2px] -translate-x-1/2 border-l-[2px] border-dashed border-[#ffddcc] -z-10 sm:hidden"></div>}
+                      
+                      <div className="w-14 h-14 rounded-full bg-white border-[6px] border-[#fff0e6] text-[#ff5e14] flex items-center justify-center font-extrabold text-base relative z-10 group-hover:scale-110 transition-transform duration-300">
+                        {step.num}
+                      </div>
+
+                      {/* Unique Vertical Connector */}
+                      <div className="w-[2px] h-6 sm:h-8 border-l-[2px] border-dashed border-[#ffddcc] my-1 opacity-40 group-hover:opacity-100 group-hover:border-[#ff5e14] transition-all duration-300"></div>
+                      
+                      <div className="w-[72px] h-[72px] rounded-full bg-[#fff0e6] text-[#ff5e14] flex items-center justify-center mb-5 group-hover:bg-[#ff5e14] group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-md group-hover:-translate-y-1 relative z-10">
+                        <step.icon className="w-8 h-8" />
+                      </div>
+                      
+                      <h4 className="font-bold text-gray-900 text-base md:text-lg group-hover:text-[#ff5e14] transition-colors">{step.title}</h4>
+                      <div className="w-6 h-[2px] bg-[#ff5e14] mx-auto mt-2 mb-3"></div>
+                      <p className="text-gray-500 text-sm max-w-[140px] leading-relaxed">{step.desc}</p>
                     </div>
-                    <h4 className="font-bold text-gray-900 text-sm sm:text-base mb-1">{step.title}</h4>
-                    <p className="text-gray-500 text-xs sm:text-sm max-w-[120px]">{step.desc}</p>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* For Providers */}
-            <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm relative pt-12">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#111] text-white font-bold text-xs uppercase tracking-wider px-6 py-2 rounded-full">
-                For Providers
+            <div className="bg-white rounded-[2rem] p-6 sm:p-10 border border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.05)] relative mt-16 xl:mt-0 flex flex-col justify-start">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center gap-2 px-6 py-3 bg-[#111] text-white font-bold text-sm sm:text-base uppercase tracking-wider rounded-xl shadow-lg shadow-black/10 z-20">
+                <Briefcase className="w-5 h-5 fill-current" />
+                FOR PROVIDERS
               </div>
-              <div className="flex justify-between relative mt-8">
-                <div className="absolute top-6 left-0 right-0 h-0.5 bg-gray-200 -z-10 hidden sm:block"></div>
-                {[
-                  { num: "1", title: "Register", desc: "Sign up and create your profile" },
-                  { num: "2", title: "Add Services", desc: "List your services and pricing" },
-                  { num: "3", title: "Receive Bookings", desc: "Get booking requests" },
-                  { num: "4", title: "Earn & Grow", desc: "Track earnings and grow your business" }
-                ].map((step, i) => (
-                  <div key={i} className="flex flex-col items-center flex-1 text-center bg-white px-2">
-                    <div className="w-12 h-12 rounded-full bg-[#111] text-white flex items-center justify-center font-bold text-lg mb-4 shadow-md">
-                      {step.num}
+              
+              <div className="relative mt-12 mb-4">
+                {/* Connecting Line (Horizontal) */}
+                <div className="absolute top-[28px] left-[12%] right-[12%] h-[2px] bg-transparent border-t-[2px] border-dashed border-gray-200 z-0 hidden sm:block"></div>
+                
+                <div className="flex flex-col sm:flex-row justify-between gap-8 sm:gap-2 relative z-10">
+                  {[
+                    { num: "01", icon: UserPlus, title: "Register", desc: "Sign up and create your profile" },
+                    { num: "02", icon: ClipboardList, title: "Add Services", desc: "List your services and pricing" },
+                    { num: "03", icon: Bell, title: "Receive Bookings", desc: "Get booking requests from customers" },
+                    { num: "04", icon: TrendingUp, title: "Earn & Grow", desc: "Track earnings and grow your business" }
+                  ].map((step, i) => (
+                    <div key={i} className="flex flex-col items-center flex-1 text-center group relative">
+                      {/* Vertical line for mobile connecting steps */}
+                      {i !== 3 && <div className="absolute top-[56px] bottom-[-48px] left-1/2 w-[2px] -translate-x-1/2 border-l-[2px] border-dashed border-gray-200 -z-10 sm:hidden"></div>}
+
+                      <div className="w-14 h-14 rounded-full bg-white border-[6px] border-gray-100 text-gray-900 flex items-center justify-center font-extrabold text-base relative z-10 group-hover:scale-110 transition-transform duration-300">
+                        {step.num}
+                      </div>
+
+                      {/* Unique Vertical Connector */}
+                      <div className="w-[2px] h-6 sm:h-8 border-l-[2px] border-dashed border-gray-200 my-1 opacity-40 group-hover:opacity-100 group-hover:border-[#111] transition-all duration-300"></div>
+                      
+                      <div className="w-[72px] h-[72px] rounded-full bg-gray-100 text-gray-800 flex items-center justify-center mb-5 group-hover:bg-[#111] group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-md group-hover:-translate-y-1 relative z-10">
+                        <step.icon className="w-8 h-8" />
+                      </div>
+                      
+                      <h4 className="font-bold text-gray-900 text-base md:text-lg group-hover:text-[#111] transition-colors">{step.title}</h4>
+                      <div className="w-6 h-[2px] bg-[#111] mx-auto mt-2 mb-3"></div>
+                      <p className="text-gray-500 text-sm max-w-[140px] leading-relaxed">{step.desc}</p>
                     </div>
-                    <h4 className="font-bold text-gray-900 text-sm sm:text-base mb-1">{step.title}</h4>
-                    <p className="text-gray-500 text-xs sm:text-sm max-w-[120px]">{step.desc}</p>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -305,75 +344,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Everything You Need Inside the App */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
-            
-            {/* Left Col */}
-            <div className="lg:w-1/3">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-8">
-                Everything You Need <br />
-                <span className="text-[#ff5e14]">Inside</span> the App
-              </h2>
-              <ul className="space-y-4 mb-10">
-                {[
-                  "Manage services and pricing",
-                  "Receive and manage bookings",
-                  "Real-time notifications",
-                  "Customer chat and support",
-                  "Earnings and performance reports",
-                  "Reviews and ratings"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#ff5e14] fill-white flex-shrink-0" />
-                    <span className="text-gray-700 font-bold text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-4 mt-2">
-                <AppleStoreButton />
-                <GooglePlayButton />
-              </div>
-            </div>
-
-            {/* Center Col - Phones */}
-            <div className="lg:w-1/3 flex justify-center relative min-h-[400px]">
-              <div className="w-full h-full bg-[#ffddcc]/50 rounded-3xl border-4 border-dashed border-[#ff5e14]/30 flex flex-col items-center justify-center text-center p-8 overflow-hidden shadow-xl">
-                <p className="text-[#ff5e14] font-bold text-xl mb-2">Image Placeholder</p>
-                <p className="text-gray-600 text-sm">Add overlapping phones image here</p>
-              </div>
-            </div>
-
-            {/* Right Col */}
-            <div className="lg:w-1/3">
-              <div className="bg-[#fff6f0] rounded-3xl p-8 border border-[#ffddcc]/50 shadow-lg">
-                <h3 className="text-2xl font-extrabold text-gray-900 mb-6">
-                  Grow Your Business With Fixora
-                </h3>
-                <ul className="space-y-4 mb-8">
-                  {[
-                    "Reach more customers",
-                    "Manage bookings easily",
-                    "Track earnings and growth",
-                    "Build your reputation"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#ff5e14] fill-[#ffddcc] flex-shrink-0" />
-                      <span className="text-gray-800 font-bold text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8 flex justify-end">
-                   {/* Placeholder for chart graphic */}
-                   <div className="w-32 h-24 bg-white/60 rounded-xl border-2 border-dashed border-[#ff5e14]/40 flex items-center justify-center">
-                     <span className="text-[#ff5e14] font-bold text-xs">Chart Image</span>
-                   </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+      {/* Full Width Banner */}
+      <section className="py-12 md:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full flex justify-center relative"
+          >
+            <Image
+              src="/images/banner/hero-banner-1.png"
+              alt="Fixora Full Banner"
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-3xl shadow-2xl object-cover"
+              priority
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -438,50 +427,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Footer */}
+      {/* CTA Footer Banner */}
       <section className="py-12 container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="bg-[#111] rounded-3xl overflow-hidden relative shadow-2xl">
-          <div className="flex flex-col lg:flex-row items-center justify-between p-10 md:p-16 gap-10">
-            
-            <div className="lg:w-1/2 relative z-10 text-center lg:text-left flex flex-col md:flex-row items-center gap-8">
-              {/* Professional Image Placeholder */}
-              <div className="w-40 h-40 bg-white/10 rounded-full border-4 border-dashed border-white/20 flex items-center justify-center flex-shrink-0">
-                 <span className="text-white/50 text-xs">Image</span>
-              </div>
-              
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-                  Ready to Grow Your <br/>Service Business?
-                </h2>
-                <p className="text-gray-400 text-base mb-0 max-w-sm mx-auto lg:mx-0">
-                  Join thousands of providers already growing with Fixora.
-                </p>
-              </div>
-            </div>
-
-            <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-end gap-6 h-auto lg:h-32 items-center flex-wrap lg:flex-nowrap">
-              {/* Stores Placeholder */}
-              <div className="flex flex-col sm:flex-row lg:flex-col gap-4">
-                <AppleStoreButton />
-                <GooglePlayButton />
-              </div>
-
-              {/* Decorative dotted separator hidden on small screens */}
-              <div className="hidden lg:block w-px h-full border-l border-dashed border-white/20 mx-2"></div>
-
-              {/* QR Code Placeholder */}
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-32 h-32 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-2">
-                  <div className="w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg">
-                    <span className="text-gray-400 text-xs font-bold">QR Code</span>
-                  </div>
-                </div>
-                <span className="text-gray-400 text-xs">Scan to Download</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="w-full flex justify-center"
+        >
+          <Image
+            src="/images/banner/hero-banner-2.png"
+            alt="Ready to Grow Your Business"
+            width={1920}
+            height={600}
+            className="w-full h-auto rounded-3xl shadow-2xl object-cover"
+            priority
+          />
+        </motion.div>
       </section>
     </>
   );
