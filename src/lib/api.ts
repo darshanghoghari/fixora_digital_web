@@ -1,7 +1,7 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "";
+const API_BASE_URL = "";
 
 export const API_ENDPOINTS = {
-    submitFeedback: `${API_BASE_URL}/feedback/create`,
+    submitFeedback: `/api/feedback/create`,
 };
 
 export interface FeedbackData {
