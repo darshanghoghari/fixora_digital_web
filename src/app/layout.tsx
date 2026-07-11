@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import Header from "@/components/Header";
@@ -71,6 +72,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
+          <Toaster position="bottom-right" />
           <Loader />
           <Header />
           <main className="min-h-screen pt-16 md:pt-20 pb-0">{children}</main>
