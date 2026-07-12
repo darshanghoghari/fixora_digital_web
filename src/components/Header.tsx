@@ -38,7 +38,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Logo size="lg" className="flex-shrink-0" />
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -51,7 +51,7 @@ export default function Header() {
             ))}
           </div>
 
-          <div className="flex items-center space-x-4 md:hidden">
+          <div className="flex items-center space-x-4 lg:hidden">
             <Button
               variant="light"
               isIconOnly
@@ -76,7 +76,7 @@ export default function Header() {
             animate={{ opacity: 1, maxHeight: "calc(100dvh - 4rem)" }}
             exit={{ opacity: 0, maxHeight: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden bg-white border-t border-border overflow-y-auto pb-10 shadow-2xl"
+            className="lg:hidden bg-white border-t border-border overflow-y-auto pb-10 shadow-2xl"
           >
             <motion.div
               initial={{ y: -10 }}
