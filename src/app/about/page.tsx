@@ -56,19 +56,19 @@ export default function AboutPage() {
 
   const journey = [
     {
-      year: "2023",
+      year: "2025",
       title: "Idea Born",
       desc: "We identified the gaps in the home services industry and came up with a solution.",
       icon: Lightbulb,
     },
     {
-      year: "2024",
+      year: "2025",
       title: "Platform Development",
       desc: "Built a robust platform focused on trust, quality and experience.",
       icon: Code,
     },
     {
-      year: "2025",
+      year: "2026",
       title: "Public Launch",
       desc: "Launched Fixora to connect customers and service providers seamlessly.",
       icon: Rocket,
