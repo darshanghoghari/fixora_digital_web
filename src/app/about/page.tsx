@@ -1,17 +1,29 @@
 "use client";
 
+import { useCallback } from "react";
 import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
 import {
   ClipboardCheck, Users, MapPin, Star,
   Target, Eye, ShieldCheck, Lock, Zap, Tag,
   Lightbulb, Code, Rocket, BarChart2,
-  Linkedin, Mail, ArrowRight, Download
+  Linkedin, Mail, ArrowRight, ArrowLeft, Download
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { AppleStoreButton, GooglePlayButton } from "@/components/StoreButtons";
+import useEmblaCarousel from "embla-carousel-react";
+
 export default function AboutPage() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start", skipSnaps: false });
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
   const stats = [
     { icon: ClipboardCheck, title: "50,000+", subtitle: "Bookings Completed" },
     { icon: Users, title: "5,000+", subtitle: "Verified Providers" },
@@ -71,25 +83,29 @@ export default function AboutPage() {
 
   const leadership = [
     {
-      name: "Rohit Verma",
+      name: "Vipin Meshram",
       title: "Founder & CEO",
-      desc: "Visionary leader with a passion for innovation and building impactful technology solutions.",
+      desc: "The driving force behind Fixora, dedicated to revolutionizing the home services industry through technology and seamless customer experiences.",
+      image: "/images/team/vipin-founder.png",
+      linkedin: "",
+      email: "",
     },
     {
-      name: "Amit Singh",
+      name: "Arun Gupta",
       title: "Co-Founder & CTO",
-      desc: "Tech enthusiast driving product innovation and platform excellence.",
+      desc: "Technology architect behind Fixora's platform, passionate about building robust, scalable solutions that connect customers with trusted professionals.",
+      image: "/images/team/arun-cto.png",
+      linkedin: "",
+      email: "",
     },
     {
-      name: "Priya Sharma",
-      title: "Co-Founder & CCO",
-      desc: "Operations expert ensuring seamless service delivery and customer satisfaction.",
-    },
-    {
-      name: "Kunal Patel",
-      title: "Head of Growth",
-      desc: "Growth strategist focused on scaling Fixora and building strong partnerships.",
-    },
+      name: "Darshan Ghoghari",
+      title: "Lead Developer",
+      desc: "The technical expert responsible for developing, managing, and maintaining the Fixora application to ensure a flawless user experience.",
+      image: "/images/team/darshan-lead.png",
+      linkedin: "http://www.linkedin.com/in/darshan-ghoghari-2840322a6",
+      email: "darshanghoghari5657@gmail.com",
+    }
   ];
 
   return (
@@ -99,7 +115,7 @@ export default function AboutPage() {
       <section className="bg-[#fff6f0] pt-28 pb-32 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col-reverse lg:flex-row-reverse items-center justify-between gap-12 lg:gap-20">
-            
+
             {/* Text Side (Right on Desktop) */}
             <div className="lg:w-1/2">
               <span className="text-[#ff5e14] font-bold tracking-wider text-sm md:text-base uppercase mb-4 block">ABOUT FIXORA</span>
@@ -115,7 +131,7 @@ export default function AboutPage() {
 
             {/* Banner Image Side (Left on Desktop) */}
             <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-start">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
@@ -160,7 +176,7 @@ export default function AboutPage() {
 
           {/* Mission & Vision Image */}
           <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-start">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -256,8 +272,7 @@ export default function AboutPage() {
                     <div className="absolute -top-6 w-3 h-3 rounded-full bg-[#ff5e14] md:hidden"></div>
                   </div>
                   <h4 className="text-xl font-bold text-gray-900 mb-2">
-                    <span className="text-[#ff5e14] mr-1">{step.year.substring(0, 2)}</span>
-                    <span className="text-[#ff5e14]">{step.year.substring(2)}</span>
+                    <span className="text-[#ff5e14]">{step.year}</span>
                   </h4>
                   <h5 className="font-bold text-gray-900 mb-3 text-lg">{step.title}</h5>
                   <p className="text-gray-500 text-sm leading-relaxed px-2">
@@ -278,38 +293,67 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-[#ff5e14] mx-auto rounded-full mt-4"></div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leadership.map((leader, i) => (
-              <div key={i} className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm text-center hover:-translate-y-1 transition-transform duration-300">
+          <div className="overflow-hidden cursor-grab active:cursor-grabbing pb-8" ref={emblaRef}>
+            <div className="flex -ml-4">
+              {leadership.map((leader, i) => (
+                <div key={i} className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4">
+                  <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm text-center h-full hover:-translate-y-1 transition-transform duration-300">
+                    {/* Image or Placeholder */}
+                    <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full mx-auto bg-gray-100 border-4 border-white shadow-md mb-6 relative overflow-hidden flex items-center justify-center">
+                      {leader.image ? (
+                        <Image src={leader.image} alt={leader.name} width={400} height={400} className="w-full h-full object-cover" />
+                      ) : (
+                        <UserPlaceholder />
+                      )}
+                    </div>
 
-                {/* Image Placeholder */}
-                <div className="w-32 h-32 rounded-full mx-auto bg-gray-100 border-4 border-white shadow-md mb-6 relative overflow-hidden flex items-center justify-center">
-                  <UserPlaceholder />
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{leader.name}</h3>
+                    <p className="text-[#ff5e14] font-medium text-sm mb-4">{leader.title}</p>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                      {leader.desc}
+                    </p>
+
+                    {(leader.linkedin || leader.email) && (
+                      <div className="flex items-center justify-center gap-3">
+                        {leader.linkedin && (
+                          <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-[#0a66c2] hover:text-white hover:border-[#0a66c2] transition-colors text-gray-600">
+                            <Linkedin className="w-4 h-4" />
+                          </a>
+                        )}
+                        {leader.email && (
+                          <a href={leader.email.startsWith('mailto:') ? leader.email : `mailto:${leader.email}`} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-[#ea4335] hover:text-white hover:border-[#ea4335] transition-colors text-gray-600">
+                            <Mail className="w-4 h-4" />
+                          </a>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{leader.name}</h3>
-                <p className="text-[#ff5e14] font-medium text-sm mb-4">{leader.title}</p>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  {leader.desc}
-                </p>
-
-                <div className="flex items-center justify-center gap-3">
-                  <a href="#" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-gray-600">
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-gray-600">
-                    <Mail className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            ))}
+          {/* Carousel Controls */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button
+              onClick={scrollPrev}
+              className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-[#ff5e14] hover:text-white hover:border-[#ff5e14] transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-[#ff5e14] hover:text-white hover:border-[#ff5e14] transition-colors"
+            >
+              <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </section>
 
       {/* 7. CTA Section */}
       <section className="py-12 container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
