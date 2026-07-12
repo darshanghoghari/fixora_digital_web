@@ -107,10 +107,9 @@ export default function Home() {
               <Button
                 as={Link}
                 href={contentData.home.hero.cta.primary.href}
-                variant="bordered"
                 size="lg"
                 radius="full"
-                className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold !border-[hsl(var(--color-primary))] border-2 text-[hsl(var(--color-primary))] bg-transparent hover:!bg-[hsl(var(--color-primary))] hover:!text-white transition-all duration-300 w-full sm:w-auto"
+                className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-bold bg-[#ff5e14] text-white hover:bg-[#e04d0c] hover:scale-[1.02] hover:shadow-xl hover:shadow-[#ff5e14]/20 border-2 border-transparent transition-all duration-300 w-full sm:w-auto"
               >
                 {contentData.home.hero.cta.primary.text}
               </Button>
@@ -122,7 +121,7 @@ export default function Home() {
                 variant="bordered"
                 size="lg"
                 radius="full"
-                className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold !border-[hsl(var(--color-secondary))] border-2 text-[hsl(var(--color-secondary))] bg-transparent hover:!bg-[hsl(var(--color-secondary))] hover:!text-white transition-all duration-300 w-full sm:w-auto"
+                className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-bold border-2 border-white/80 text-white bg-white/5 hover:bg-white hover:text-gray-900 hover:border-white hover:scale-[1.02] transition-all duration-300 w-full sm:w-auto backdrop-blur-sm"
               >
                 {contentData.home.hero.cta.secondary.text}
               </Button>
@@ -215,10 +214,7 @@ export default function Home() {
                 <span className="font-bold text-gray-900 text-sm">{srv.name}</span>
               </div>
             ))}
-            
-            <button className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-100 flex items-center justify-center text-gray-600 hover:text-[#ff5e14] transition-colors hidden lg:flex">
-              <ChevronRight className="w-6 h-6" />
-            </button>
+
           </div>
         </div>
       </section>

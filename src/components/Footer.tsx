@@ -43,7 +43,7 @@ export default function Footer() {
                 {siteData.description}
               </p>
 
-              <div className="flex flex-col sm:flex-row sm:items-center sm:flex-wrap gap-2.5 sm:gap-3 md:gap-4">
+              {/* <div className="flex flex-col sm:flex-row sm:items-center sm:flex-wrap gap-2.5 sm:gap-3 md:gap-4">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-muted-foreground text-xs sm:text-sm leading-relaxed whitespace-nowrap">
@@ -70,7 +70,7 @@ export default function Footer() {
                     {siteData.email}
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="mt-6 sm:mt-0">
@@ -156,7 +156,7 @@ export default function Footer() {
                 © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
               </p>
               <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-                <div className="flex items-center gap-2.5 md:gap-3">
+                {/* <div className="flex items-center gap-2.5 md:gap-3">
                   <a
                     href="#"
                     className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300"
@@ -185,7 +185,7 @@ export default function Footer() {
                   >
                     <Instagram className="w-4 h-4" />
                   </a>
-                </div>
+                </div> */}
                 <div className="flex flex-wrap justify-center md:justify-end gap-3 md:gap-4 text-xs md:text-sm">
                   <Link
                     href="/privacy"
