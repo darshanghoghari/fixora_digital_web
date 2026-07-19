@@ -12,7 +12,8 @@ export default function TermsAndConditions() {
         .policy-content a { color: #2563eb; text-decoration: underline; }
         .policy-content strong { font-weight: bold; }
       `}</style>
-      <div className="container mx-auto px-4 py-12 max-w-4xl policy-content" dangerouslySetInnerHTML={{ __html: `<h1>Terms & Conditions</h1>
+      <div className="container mx-auto px-4 py-12 max-w-4xl policy-content" dangerouslySetInnerHTML={{
+        __html: `<h1>Terms & Conditions</h1>
 <p>Last Updated: June 21, 2026</p>
 <p>These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Fixora Enterprises ("we," "us," or "our"), concerning your access to and use of our mobile application and website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the "Site" and "App").</p>
 <ul>
@@ -58,6 +59,8 @@ export default function TermsAndConditions() {
 <p>We accept various forms of payment through our secure payment gateway partner, Razorpay. You agree to provide current, complete, and accurate purchase and account information for all purchases made via the Site/App.</p>
 <h3>Pricing and Fees</h3>
 <p>All prices are subject to change. We reserve the right to correct any errors or mistakes in pricing, even if we have already requested or received payment. Additional fees for spare parts or extended labor may apply based on the service provider's assessment on-site.</p>
+<h3>Platform Charges and Payouts</h3>
+<p>A platform charge of 5% is applicable on every successful service transaction. This amount is retained by Fixora Enterprises as a platform service fee. The remaining 95% of the payment is transferred to the respective service provider after successful payment confirmation, subject to applicable payment gateway processing, verification, and payout policies. All payments are processed through secure third-party payment gateways, and Fixora does not store users' complete payment credentials.</p>
 
 <h2>7. PROHIBITED ACTIVITIES</h2>
 <p>You may not access or use the Services for any purpose other than that for which we make the Services available. The Services may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p>

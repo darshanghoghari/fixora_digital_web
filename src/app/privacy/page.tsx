@@ -314,6 +314,8 @@ export default function PrivacyPolicy() {
     <li>Protect the personal safety of Users of the Service or the public</li>
     <li>Protect against legal liability</li>
 </ul>
+<h3>Payment Processing and Platform Fees</h3>
+<p>A platform charge of 5% is applicable on every successful service transaction. This amount is retained by Fixora Enterprises as a platform service fee. The remaining 95% of the payment is transferred to the respective service provider after successful payment confirmation, subject to applicable payment gateway processing, verification, and payout policies. All payments are processed through secure third-party payment gateways, and Fixora does not store users' complete payment credentials.</p>
 <h3>SMTP Email Service</h3>
 <p>We use Google's SMTP (Simple Mail Transfer Protocol) service to send transactional emails, including account verification, password reset requests, booking confirmations, service updates, and other important notifications. Your email address is used solely for these communication purposes and is processed securely. Google's handling of personal information is governed by its own Privacy Policy, which you can review here: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.</p>
 <h3>Security of Your Personal Data</h3>
