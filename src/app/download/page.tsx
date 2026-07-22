@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Smartphone, Download, Gauge, ShieldCheck } from "lucide-react";
+import { CheckCircle2, Smartphone, Download, Gauge, ShieldCheck, TrendingUp, Wrench, Zap, Droplets, Paintbrush } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@heroui/react";
-import { AppleStoreButton, GooglePlayButton } from "@/components/StoreButtons";
+import { AppleStoreButton, GooglePlayButton, AppleIcon, PlayStoreIcon } from "@/components/StoreButtons";
 
 export default function DownloadPage() {
   const features = [
@@ -83,27 +83,47 @@ export default function DownloadPage() {
                 Download our app and start managing your provider business from anywhere, anytime.
               </p>
               
-              <div className="space-y-4 max-w-sm">
+              <div className="space-y-4 max-w-sm w-full">
                 {/* Download for iOS */}
-                <div className="w-full bg-[#ff5e14] text-white rounded-xl p-4 flex items-center justify-between font-bold cursor-not-allowed opacity-90">
-                  <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 border-2 border-white/30 rounded-full flex items-center justify-center text-xs">
-                      iOS
+                <button 
+                  disabled
+                  className="group relative w-full flex items-center justify-between p-1 bg-gradient-to-r from-secondary to-secondary-light rounded-2xl overflow-hidden cursor-not-allowed opacity-90 transition-all shadow-lg"
+                >
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="flex items-center gap-4 p-3 pl-4 relative z-10">
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-white backdrop-blur-sm">
+                      <AppleIcon className="w-5 h-5" />
                     </div>
-                    <span>Download for iOS</span>
+                    <div className="flex flex-col items-start text-white">
+                      <span className="text-[10px] font-medium text-gray-400 uppercase tracking-wider">Download on the</span>
+                      <span className="text-base font-bold tracking-tight">App Store</span>
+                    </div>
                   </div>
-                  <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
-                    Coming Soon
-                  </span>
-                </div>
+                  <div className="pr-4 relative z-10">
+                    <span className="bg-white/10 text-white border border-white/20 px-3 py-1.5 rounded-full text-xs font-semibold backdrop-blur-md">
+                      Coming Soon
+                    </span>
+                  </div>
+                </button>
 
                 {/* Download for Android */}
-                <div className="w-full bg-white border-2 border-gray-200 text-gray-900 rounded-xl p-4 flex items-center gap-3 font-bold hover:border-[#ff5e14] hover:text-[#ff5e14] transition-colors cursor-pointer">
-                  <div className="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center text-xs">
-                    GP
+                <button 
+                  className="group relative w-full flex items-center justify-between p-1 bg-gradient-to-r from-primary to-primary-light rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="flex items-center gap-4 p-3 pl-4 relative z-10">
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 text-white backdrop-blur-sm border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                      <PlayStoreIcon className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col items-start text-white">
+                      <span className="text-[10px] font-medium text-white/80 uppercase tracking-wider">GET IT ON</span>
+                      <span className="text-base font-bold tracking-tight">Google Play</span>
+                    </div>
                   </div>
-                  <span>Download for Android</span>
-                </div>
+                  <div className="pr-5 relative z-10 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-white">
+                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
+                </button>
               </div>
             </div>
 
@@ -190,21 +210,102 @@ export default function DownloadPage() {
               </p>
             </div>
 
-            <div className="lg:w-1/2 relative w-full flex justify-center lg:justify-end gap-6 h-auto lg:h-32 items-center flex-wrap lg:flex-nowrap">
-              {/* Stores Placeholder */}
-              <div className="flex flex-col gap-4">
-                <AppleStoreButton />
-                <GooglePlayButton />
-              </div>
+            <div className="lg:w-1/2 relative w-full flex justify-center items-center mt-12 lg:mt-0 h-64 lg:h-80">
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-secondary/50 rounded-full blur-3xl opacity-60"></div>
+              
+              <div className="relative w-full max-w-[280px] aspect-square flex items-center justify-center">
+                {/* Center glowing element - Enhanced Mobile Shape */}
+                <motion.div 
+                  animate={{ y: [0, -12, 0] }}
+                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                  className="relative z-20 w-24 h-48 bg-gradient-to-br from-gray-800 to-black rounded-[2rem] shadow-[0_0_40px_rgba(255,94,20,0.5)] border-4 border-gray-700 p-1 flex items-center justify-center"
+                >
+                  {/* Mobile Screen with gradient */}
+                  <div className="w-full h-full bg-gradient-to-b from-primary-light via-primary to-primary-dark rounded-[1.6rem] relative overflow-hidden flex flex-col items-center justify-center">
+                    
+                    {/* Hardware Notch */}
+                    <div className="absolute top-0 w-[45%] h-4 bg-black rounded-b-xl flex justify-center items-center shadow-inner">
+                      <div className="w-1/3 h-[2px] bg-gray-700 rounded-full"></div>
+                    </div>
+                    
+                    {/* Abstract App UI on screen */}
+                    <div className="flex flex-col items-center gap-3 w-full px-3 mt-2">
+                      {/* Logo / Main Icon */}
+                      <div className="w-10 h-10 bg-white/20 rounded-xl backdrop-blur-md flex items-center justify-center shadow-inner border border-white/30">
+                        <ShieldCheck className="w-6 h-6 text-white" />
+                      </div>
+                      
+                      {/* Lines mimicking text */}
+                      <div className="w-full space-y-1.5 mt-1">
+                        <div className="w-full h-1.5 bg-white/40 rounded-full"></div>
+                        <div className="w-5/6 h-1.5 bg-white/30 rounded-full mx-auto"></div>
+                        <div className="w-4/6 h-1.5 bg-white/20 rounded-full mx-auto"></div>
+                      </div>
 
-              {/* Decorative dotted separator hidden on small screens */}
-              <div className="hidden lg:block w-px h-full border-l border-dashed border-white/20 mx-2"></div>
+                      {/* Mock Action Button */}
+                      <div className="w-full h-7 bg-white text-primary-dark mt-2 rounded-lg flex items-center justify-center font-extrabold text-[9px] tracking-wider shadow-sm">
+                        FIXORA
+                      </div>
+                    </div>
+                    
+                    {/* Bottom Home Indicator */}
+                    <div className="absolute bottom-1.5 w-1/3 h-1 bg-white/40 rounded-full"></div>
+                  </div>
 
-              {/* QR Code Placeholder */}
-              <div className="w-32 h-32 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-2">
-                <div className="w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg">
-                  <span className="text-gray-400 text-xs font-bold">QR Code</span>
-                </div>
+                  {/* Verified Check Badge */}
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.5, type: "spring" }}
+                    className="absolute -bottom-4 -right-4 bg-white rounded-full p-1.5 shadow-2xl z-30"
+                  >
+                    <CheckCircle2 className="w-7 h-7 text-green-500 fill-green-50" />
+                  </motion.div>
+                </motion.div>
+
+                {/* Inner Orbiting Elements */}
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+                  className="absolute inset-4 z-10 border border-white/10 rounded-full border-dashed"
+                >
+                  {/* Item 1 */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gray-900 rounded-xl border border-white/10 flex items-center justify-center shadow-xl">
+                    <motion.div animate={{ rotate: -360 }} transition={{ repeat: Infinity, duration: 25, ease: "linear" }}>
+                      <TrendingUp className="w-6 h-6 text-primary-light" />
+                    </motion.div>
+                  </div>
+                  {/* Item 2 */}
+                  <div className="absolute bottom-[15%] -right-4 w-10 h-10 bg-gray-900 rounded-xl border border-white/10 flex items-center justify-center shadow-xl">
+                    <motion.div animate={{ rotate: -360 }} transition={{ repeat: Infinity, duration: 25, ease: "linear" }}>
+                      <Wrench className="w-5 h-5 text-blue-400" />
+                    </motion.div>
+                  </div>
+                  {/* Item 3 */}
+                  <div className="absolute bottom-[15%] -left-4 w-10 h-10 bg-gray-900 rounded-xl border border-white/10 flex items-center justify-center shadow-xl">
+                    <motion.div animate={{ rotate: -360 }} transition={{ repeat: Infinity, duration: 25, ease: "linear" }}>
+                      <Zap className="w-5 h-5 text-yellow-400" />
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Outer Orbiting Elements */}
+                <motion.div 
+                  animate={{ rotate: -360 }}
+                  transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
+                  className="absolute inset-[-15%] z-0 border border-white/5 rounded-full border-dotted opacity-60"
+                >
+                  <div className="absolute top-1/4 -left-4 w-9 h-9 bg-gray-900 rounded-full border border-white/10 flex items-center justify-center shadow-xl">
+                    <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 35, ease: "linear" }}>
+                      <Droplets className="w-4 h-4 text-cyan-400" />
+                    </motion.div>
+                  </div>
+                  <div className="absolute bottom-0 right-1/4 w-9 h-9 bg-gray-900 rounded-full border border-white/10 flex items-center justify-center shadow-xl">
+                    <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 35, ease: "linear" }}>
+                      <Paintbrush className="w-4 h-4 text-pink-400" />
+                    </motion.div>
+                  </div>
+                </motion.div>
               </div>
             </div>
 

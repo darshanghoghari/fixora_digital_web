@@ -26,7 +26,7 @@ export const AppleStoreButton = ({ className = "" }: { className?: string }) => 
   return (
     <a
       href="#"
-      className={`inline-flex w-36 sm:w-40 items-center justify-center gap-2 sm:gap-2.5 bg-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))]/90 text-white px-3 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg ${className}`}
+      className={`inline-flex w-36 sm:w-40 items-center justify-center gap-2 sm:gap-2.5 bg-primary hover:bg-primary-dark text-white px-3 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg ${className}`}
       aria-label="Download on App Store"
     >
       <AppleIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
@@ -46,7 +46,7 @@ export const GooglePlayButton = ({ className = "" }: { className?: string }) => 
   return (
     <a
       href="#"
-      className={`inline-flex w-36 sm:w-40 items-center justify-center gap-2 sm:gap-2.5 bg-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))]/90 text-white px-3 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg ${className}`}
+      className={`inline-flex w-36 sm:w-40 items-center justify-center gap-2 sm:gap-2.5 bg-primary hover:bg-primary-dark text-white px-3 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg ${className}`}
       aria-label="Get it on Google Play"
     >
       <PlayStoreIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />

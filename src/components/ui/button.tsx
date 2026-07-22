@@ -5,27 +5,28 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-[length:var(--text-btn)] font-semibold transition-all duration-[var(--animate-duration-normal)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0 rounded-[var(--radius-button)]",
   {
     variants: {
       variant: {
         default:
-          "bg-[hsl(var(--color-primary))] text-white hover:bg-white hover:text-[hsl(var(--color-primary))] hover:border-2 hover:border-[hsl(var(--color-primary))] shadow-md hover:shadow-lg hover:-translate-y-0.5",
+          "bg-primary text-white hover:bg-primary-dark shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-0.5 border-2 border-transparent",
         destructive:
-          "bg-[hsl(var(--color-destructive))] text-[hsl(var(--color-destructive-foreground))] hover:bg-white hover:text-[hsl(var(--color-destructive))] hover:border-2 hover:border-[hsl(var(--color-destructive))] shadow-md hover:shadow-lg hover:-translate-y-0.5",
+          "bg-danger text-white hover:bg-red-700 shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-0.5 border-2 border-transparent",
         outline:
-          "border-2 border-[hsl(var(--color-primary))] bg-transparent text-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))] hover:text-white hover:shadow-lg hover:-translate-y-0.5",
+          "border-2 border-border bg-transparent text-text-primary hover:bg-surface hover:border-gray-300 hover:shadow-[var(--shadow-sm)] hover:-translate-y-0.5",
         secondary:
-          "bg-[hsl(var(--color-secondary))] text-[hsl(var(--color-secondary-foreground))] hover:bg-white hover:text-[hsl(var(--color-secondary))] hover:border-2 hover:border-[hsl(var(--color-secondary))] shadow-md hover:shadow-lg hover:-translate-y-0.5",
+          "bg-surface text-text-primary hover:bg-gray-200 shadow-[var(--shadow-md)] border-2 border-transparent",
         ghost:
-          "hover:bg-[hsl(var(--color-primary))] hover:text-white hover:shadow-md hover:-translate-y-0.5",
-        link: "text-[hsl(var(--color-primary))] underline-offset-4 hover:underline hover:text-[hsl(var(--color-secondary))]",
+          "hover:bg-surface hover:text-text-primary",
+        link: "text-primary underline-offset-4 hover:underline",
+        white: "bg-white text-gray-900 border-2 border-transparent hover:bg-gray-50 shadow-[var(--shadow-md)]",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-[var(--spacing-12)] px-[var(--spacing-6)] py-[var(--spacing-3)]",
+        sm: "h-[var(--spacing-10)] px-[var(--spacing-4)] text-[length:var(--text-body-sm)]",
+        lg: "h-[var(--spacing-16)] px-[var(--spacing-8)] text-[length:var(--text-h6)]",
+        icon: "h-[var(--spacing-12)] w-[var(--spacing-12)]",
       },
     },
     defaultVariants: {

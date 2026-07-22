@@ -469,6 +469,34 @@ export default function Services() {
               </div>
             </div>
           </motion.section>
+
+          {/* SEO Internal Linking Section */}
+          <section className="mt-24 md:mt-32 pt-12 border-t border-border">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-foreground">Our Services</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <li><a href="/services/electrician" className="text-muted-foreground hover:text-primary transition-colors">Electrician Services</a></li>
+                  <li><a href="/services/plumber" className="text-muted-foreground hover:text-primary transition-colors">Plumbing Services</a></li>
+                  <li><a href="/services/ac-repair" className="text-muted-foreground hover:text-primary transition-colors">AC Repair Services</a></li>
+                  <li><a href="/services/home-cleaning" className="text-muted-foreground hover:text-primary transition-colors">Home Cleaning Services</a></li>
+                  <li><a href="/services/carpenter" className="text-muted-foreground hover:text-primary transition-colors">Carpentry Services</a></li>
+                  <li><a href="/services/painter" className="text-muted-foreground hover:text-primary transition-colors">Painting Services</a></li>
+                  <li><a href="/services/appliance-repair" className="text-muted-foreground hover:text-primary transition-colors">Appliance Repair</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-foreground">Service Locations</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <li><a href="/cities/ahmedabad" className="text-muted-foreground hover:text-primary transition-colors">Home Services in Ahmedabad</a></li>
+                  <li><a href="/cities/surat" className="text-muted-foreground hover:text-primary transition-colors">Home Services in Surat</a></li>
+                  <li><a href="/cities/rajkot" className="text-muted-foreground hover:text-primary transition-colors">Home Services in Rajkot</a></li>
+                  <li><a href="/cities/vadodara" className="text-muted-foreground hover:text-primary transition-colors">Home Services in Vadodara</a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
         </div>
       </section>
     </div>

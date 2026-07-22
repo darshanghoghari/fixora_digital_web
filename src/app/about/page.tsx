@@ -162,7 +162,7 @@ export default function AboutPage() {
                 <stat.icon className="w-7 h-7 text-[#ff5e14]" />
               </div>
               <div>
-                <h3 className="text-2xl font-black text-gray-900">{stat.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900">{stat.title}</h3>
                 <p className="text-sm font-medium text-gray-500">{stat.subtitle}</p>
               </div>
             </div>

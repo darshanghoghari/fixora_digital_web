@@ -1,31 +1,105 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Typography Variables */
+  --font-poppins: var(--font-poppins);
+  --font-inter: var(--font-inter);
+  --font-sans: var(--font-poppins);
+
+  /* Colors */
+  --color-primary: #FF5E14;
+  --color-primary-light: #FF854D;
+  --color-primary-dark: #D44500;
+
+  --color-secondary: #0F172A;
+  --color-secondary-light: #1E293B;
+  --color-secondary-dark: #020617;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  --color-neutral: var(--color-gray-500);
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  --color-background: #ffffff;
+  --color-surface: var(--color-gray-50);
+  --color-border: var(--color-gray-200);
   
-  --color-background: 0 0% 100%;
-  --color-foreground: 0 0% 10%;
-  --color-card: 0 0% 98%;
-  --color-card-foreground: 0 0% 10%;
-  --color-popover: 0 0% 100%;
-  --color-popover-foreground: 0 0% 10%;
-  --color-primary: 208 59% 17%;
-  --color-primary-foreground: 0 0% 100%;
-  --color-secondary: 24.6 95% 53.1%;
-  --color-secondary-foreground: 0 0% 100%;
-  --color-muted: 0 0% 96%;
-  --color-muted-foreground: 0 0% 45%;
-  --color-accent: 24.6 95% 53.1%;
-  --color-accent-foreground: 0 0% 100%;
-  --color-destructive: 0 84.2% 60.2%;
-  --color-destructive-foreground: 0 0% 100%;
-  --color-border: 0 0% 90%;
-  --color-input: 0 0% 96%;
-  --color-ring: 208 59% 17%;
-  --radius: 0.5rem;
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-500);
+
+  /* Next.js/Radix Standard CSS Variables (Optional but good for compatibility) */
+  --color-foreground: var(--color-gray-900);
+  --color-muted: var(--color-gray-100);
+  --color-muted-foreground: var(--color-gray-500);
+
+  /* Font Sizes - Using Clamp for fluid typography */
+  --text-display-xl: clamp(3rem, 5vw + 1rem, 5.5rem);
+  --text-display-lg: clamp(2.5rem, 4vw + 1rem, 4.5rem);
+  --text-display-md: clamp(2rem, 3vw + 1rem, 3.5rem);
+  --text-h1: clamp(1.875rem, 3vw + 0.5rem, 2.5rem);
+  --text-h2: clamp(1.5rem, 2.5vw + 0.5rem, 2rem);
+  --text-h3: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+  --text-h4: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);
+  --text-h5: clamp(1rem, 1.25vw + 0.5rem, 1.25rem);
+  --text-h6: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  
+  --text-body-lg: 1.125rem;
+  --text-body-md: 1rem;
+  --text-body-sm: 0.875rem;
+  
+  --text-caption: 0.75rem;
+  --text-btn: 1rem;
+  --text-nav: 1rem;
+
+  /* Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-30: 120px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-card: 24px;
+  --radius-button: 9999px;
+
+  /* Z-Index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
 }
 
+/* Base Styles */
 * {
   transition-property: color, background-color, border-color, opacity, transform, box-shadow;
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -38,10 +112,12 @@ html {
 
 body {
   overflow-x: hidden;
-  background-color: hsl(var(--color-background));
-  color: hsl(var(--color-foreground));
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-poppins), sans-serif;
 }
 
+/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -60,5 +136,13 @@ body {
   to {
     opacity: 1;
   }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
